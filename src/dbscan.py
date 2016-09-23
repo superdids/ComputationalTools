@@ -6,30 +6,54 @@ import pickle
 
 class Dbscan:
 
-    #visited? noisy
     __point_information = dict()
-
-    #__point_information['0'] = {'visited': 1, 'noise': 0}
-
 
     def start(self):
         data = '../files/data_10points_10dims.dat'
         small_set = pickle.load(open(data, 'rb'), encoding='latin1')
-        matr = ss.csr_matrix(small_set).todense()
+        matr = ss.csr_matrix(small_set).toarray()
+        '''
+        a = [1,0,0]
+        b = [1,1,1]
+        u = set()
+        v = set()
+        for idx,i in enumerate(a):
+            if i == 1:
+                u.add(idx)
+
+        for idx,i in enumerate(b):
+            if i == 1:
+                v.add(idx)
+
+        print((len(u & v)/len(u | v)))
 
         print(matr)
+        '''
+        self.__dbscan(matr, 0.4, 2)
 
-    def __set_point_information(self, P, visited=None, noise=None):
-        if not self.__point_information[P]:
-            self.__point_information[P] = { 'visited': 0, 'noise': 0}
-        if visited != None:
+
+    def __set_point_information(self, P, visited=None, noise=None, cluster=None):
+        if P not in self.__point_information:
+            self.__point_information[P] = { 'visited': 0, 'noise': 0, 'cluster': -1}
+        if visited is not None:
             self.__point_information[P]['visited'] = visited
-        if noise != None:
+        if noise is not None:
             self.__point_information[P]['noise'] = noise
+        if cluster is not None:
+            self.__point_information[P]['cluster'] = cluster
 
     def __is_visited(self, P):
-        point_information = self.__point_information(P)
-        return point_information and point_information['visited'] == 1
+        if P not in self.__point_information:
+            self.__set_point_information(P)
+            return False
+        return self.__point_information[P]['visited'] == 1
+
+    def __is_in_cluster(self, P):
+        if P not in self.__point_information:
+            self.__set_point_information(P)
+            return False
+        return self.__point_information[P]['cluster'] > -1
+
 
     def __dbscan(self, D, eps, min_pts):
         current_cluster = -1
@@ -42,94 +66,60 @@ class Dbscan:
 
             self.__set_point_information(current_index, visited=1)
 
-
             neighbor_points = self.__region_query(D, P, eps)
 
             if len(neighbor_points) < min_pts:
                 self.__set_point_information(current_index, noise=1)
             else:
-                ++current_cluster
-                C[current_cluster] = list()
-                C[current_cluster] = self.__expand_cluster(D, current_index, P, neighbor_points, C[current_cluster], eps, min_pts)
+                current_cluster += 1
+                C.append([None])
+                #C[current_cluster] = list()
+                C[current_cluster] = self.__expand_cluster(D, P, current_index, neighbor_points, C[current_cluster], eps, min_pts, current_cluster)
 
-
+        print(C)
         self.__point_information = dict()
 
-   
+    def __expand_cluster(self, D, P, P_index, neighbor_points, current_cluster, eps, min_pts, current_cluster_index):
+        current_cluster.append(P)
+        self.__set_point_information(P_index, cluster=current_cluster_index)
 
+        for i, P_m in enumerate(neighbor_points):
+            if not self.__is_visited(i):
+                self.__set_point_information(i, visited=1)
+                # TODO: Add arguments when Galin has implemented the below function.
+                neighbor_points_m = self.__region_query(D, P_m, eps)
+                if len(neighbor_points_m) >= min_pts:
+                    neighbor_points = neighbor_points + neighbor_points_m
 
-    def __expand_cluster(self, D, start_at, P, neighbor_points, current_cluster, eps, min_pts):
+            if not self.__is_in_cluster(i):
+                current_cluster.append(P_m)
+                self.__set_point_information(P_index, cluster=current_cluster_index)
 
         return current_cluster
 
-    def __jaccard_distance(self, p1, p2):
-        return (p1 & p2) / (p1 | p2)
+    def __jaccard_distance(self, A, B):
+        return 1 - len(A & B) / len(A | B)
 
+    def __point_to_set(self, point):
+        S = set()
+        for i,p in enumerate(point):
+            if p == 1:
+                S.add(i)
+        return S
 
     def __region_query(self, D, P, eps):
-        neighbours = [None] * 0
-        row = len(P)
-        for i in range(row):
-            if i != P:
-                if self.__jaccard_distance(D[i][P[1]], P) <= eps:
-                    neighbours.append(i)
+        A = self.__point_to_set(P)
+        neighbours = [P]
+        for item in D:
+            B = self.__point_to_set(item)
+            if self.__jaccard_distance(A,B) <= eps:
+                neighbours.append(item)
+
         return neighbours
 
-
-Dbscan().start()
-
-
 '''
-
-    expandCluster(P, NeighborPts, C, eps, MinPts) {
-   add P to cluster C
-   for each point P' in NeighborPts {
-      if P' is not visited {
-         mark P' as visited
-         NeighborPts' = regionQuery(P', eps)
-         if sizeof(NeighborPts') >= MinPts
-            NeighborPts = NeighborPts joined with NeighborPts'
-      }
-      if P' is not yet member of any cluster
-         add P' to cluster C
-   }
-}
-
-expandCluster(P, NeighborPts, C, eps, MinPts) {
-   add P to cluster C
-   for each point P' in NeighborPts {
-      if P' is not visited {
-         mark P' as visited
-         NeighborPts' = regionQuery(P', eps)
-         if sizeof(NeighborPts') >= MinPts
-            NeighborPts = NeighborPts joined with NeighborPts'
-      }
-      if P' is not yet member of any cluster
-         add P' to cluster C
-   }
-}
-
-DBSCAN(D, eps, MinPts) {
-   C = 0
-   for each point P in dataset D {
-      if P is visited
-         continue next point
-      mark P as visited
-      NeighborPts = regionQuery(P, eps)
-      if sizeof(NeighborPts) < MinPts
-         mark P as NOISE
-      else {
-         C = next cluster
-         expandCluster(P, NeighborPts, C, eps, MinPts)
-      }
-   }
-}
-
-dist(P,x) <= eps -> append to neighbourhood
-
-regionQuery(D, P, eps)
-    'distance measure function is used here. '
+regionQuery(P, eps)
    return all points within P's eps-neighborhood (including P)
 '''
 
-
+Dbscan().start()
