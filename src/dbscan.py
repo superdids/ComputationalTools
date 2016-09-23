@@ -55,26 +55,48 @@ class Dbscan:
 
         self.__point_information = dict()
 
-   
+
 
 
     def __expand_cluster(self, D, start_at, P, neighbor_points, current_cluster, eps, min_pts):
 
         return current_cluster
 
-    def __jaccard_distance(self, p1, p2):
-        return (p1 & p2) / (p1 | p2)
+    """
+    Computes the distance between two given points.
+    @param  {set} A  The first point for the distance calculation
+    @param  {set} B  The second point for the distance calculation
+    """
+    def __compute_distance(self, A, B):
+        return 1 - len(A & B) / len(A | B)
 
+    """
+    Converts a vector (a list of 0s and 1s) into a set, where the values of the set are the indexes of the elements in
+    the given list that have value 1.
+    @param  {list} point     The list to be converted to a set
+    """
+    def __convert_vector_to_set(self, point):
+        current_point = set()
+        for i, el in enumerate(point):
+            if el == 1:
+                current_point.add(i)
+        return current_point
 
+    """
+    Gathers the neghbourhood of points, for a given point
+    @param  {matrix} D   The matrix dataset, loaded from the file
+    @param  {list}   P   The point, of which to gather the neighbourhood
+    @param  {double} eps The epsilon for the dataset
+    """
     def __region_query(self, D, P, eps):
-        neighbours = [None] * 0
-        row = len(P)
-        for i in range(row):
-            if i != P:
-                if self.__jaccard_distance(D[i][P[1]], P) <= eps:
-                    neighbours.append(i)
-        return neighbours
-
+        neighbourhood = []
+        __P = self.__convert_vector_to_set(P)
+        for point in D:
+            point_as_set = self.__convert_vector_to_set(point)
+            # list_sets.append(point_as_set) #--> uncommend this line if you want to have a GLOBAl list of the points as sets
+            if self.__compute_distance(__P, point_as_set) <= eps:
+                neighbourhood.append(point)
+        return neighbourhood
 
 Dbscan().start()
 
