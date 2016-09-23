@@ -79,6 +79,7 @@ class Dbscan:
         print(C)
         self.__point_information = dict()
 
+
     def __expand_cluster(self, D, P, P_index, neighbor_points, current_cluster, eps, min_pts, current_cluster_index):
         current_cluster.append(P)
         self.__set_point_information(P_index, cluster=current_cluster_index)
@@ -97,29 +98,41 @@ class Dbscan:
 
         return current_cluster
 
-    def __jaccard_distance(self, A, B):
+    """
+    Computes the distance between two given points.
+    @param  {set} A  The first point for the distance calculation
+    @param  {set} B  The second point for the distance calculation
+    """
+    def __compute_distance(self, A, B):
         return 1 - len(A & B) / len(A | B)
 
-    def __point_to_set(self, point):
-        S = set()
-        for i,p in enumerate(point):
-            if p == 1:
-                S.add(i)
-        return S
+    """
+    Converts a vector (a list of 0s and 1s) into a set, where the values of the set are the indexes of the elements in
+    the given list that have value 1.
+    @param  {list} point     The list to be converted to a set
+    """
+    def __convert_vector_to_set(self, point):
+        current_point = set()
+        for i, el in enumerate(point):
+            if el == 1:
+                current_point.add(i)
+        return current_point
 
+    """
+    Gathers the neghbourhood of points, for a given point
+    @param  {matrix} D   The matrix dataset, loaded from the file
+    @param  {list}   P   The point, of which to gather the neighbourhood
+    @param  {double} eps The epsilon for the dataset
+    """
     def __region_query(self, D, P, eps):
-        A = self.__point_to_set(P)
-        neighbours = [P]
-        for item in D:
-            B = self.__point_to_set(item)
-            if self.__jaccard_distance(A,B) <= eps:
-                neighbours.append(item)
+        neighbourhood = []
+        __P = self.__convert_vector_to_set(P)
+        for point in D:
+            point_as_set = self.__convert_vector_to_set(point)
+            # list_sets.append(point_as_set) #--> uncommend this line if you want to have a GLOBAl list of the points as sets
+            if self.__compute_distance(__P, point_as_set) <= eps:
+                neighbourhood.append(point)
+        return neighbourhood
 
-        return neighbours
-
-'''
-regionQuery(P, eps)
-   return all points within P's eps-neighborhood (including P)
-'''
 
 Dbscan().start()
