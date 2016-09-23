@@ -103,7 +103,8 @@ class Dbscan:
     @param  {set} A  The first point for the distance calculation
     @param  {set} B  The second point for the distance calculation
     """
-    def __compute_distance(self, A, B):
+    @staticmethod
+    def __compute_distance(A, B):
         return 1 - len(A & B) / len(A | B)
 
     """
@@ -111,7 +112,8 @@ class Dbscan:
     the given list that have value 1.
     @param  {list} point     The list to be converted to a set
     """
-    def __convert_vector_to_set(self, point):
+    @staticmethod
+    def __convert_vector_to_set(point):
         current_point = set()
         for i, el in enumerate(point):
             if el == 1:
