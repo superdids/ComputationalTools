@@ -2,7 +2,7 @@ import scipy.sparse as ss
 import pickle
 # For formating.
 import json
-
+import time
 
 class Dbscan:
     __point_information = dict()
@@ -30,10 +30,10 @@ class Dbscan:
             M = 2
             eps = 0.3'''
         data_set = pickle.load(open(data, 'rb'), encoding='latin1')
-        ss_matr = ss.csr_matrix(data_set)
+        matr = ss.csr_matrix(data_set)
         #for i in enumerate(ss_matr):
             #print(i)
-        matr = ss_matr.toarray()
+        #matr = ss_matr.toarray()
 
         return self.__dbscan(matr, eps, M)
 
@@ -69,9 +69,6 @@ class Dbscan:
     """
 
     def __is_visited(self, P_i):
-        #if P_i not in self.__point_information:
-            #self.__set_point_information(P_i)
-            #return False
         return self.__point_information[P_i]['visited'] == 1
 
     """
@@ -81,9 +78,6 @@ class Dbscan:
     """
 
     def __is_in_cluster(self, P_i):
-        #if P_i not in self.__point_information:
-            #self.__set_point_information(P_i)
-            #return False
         return self.__point_information[P_i]['cluster'] > -1
 
     """
@@ -93,9 +87,6 @@ class Dbscan:
     """
 
     def __is_noise(self, P_i):
-        #if P_i not in self.__point_information:
-            #self.__set_point_information(P_i)
-            #return False
         return self.__point_information[P_i]['noise'] == 1
 
     """
@@ -110,16 +101,15 @@ class Dbscan:
     def __initialize_point_information(self, D, eps):
 
         for index, P in enumerate(D):
-            
-            #TODO: ADDED below
-            #P = P.getrow(index).toarray()[0]
 
+            #TODO: ADDED below
+            P = P.toarray()[0]
 
             self.__point_information[index] = {'visited': 0, 'noise': 0, 'cluster': -1, 'neighbors': set(),
                                                'set': self.__convert_vector_to_set(P)}
-            #del P
+            del P
 
-        size = len(D)
+        size = D.shape[0]
         for i, X in enumerate(D):
             for j in range(i, size):
                 distance = self.__compute_distance(self.__point_information[i]['set'], self.__point_information[j]['set'])
@@ -127,9 +117,7 @@ class Dbscan:
                     self.__point_information[i]['neighbors'].add(j)
                     self.__point_information[j]['neighbors'].add(i)
 
-
-        #print('Done for ', len(D), 'x', len(D), '.')
-
+        print('__initialize_point_information() complete!!')
 
     '''
     Before docing this, make sure the variables have proper names.
@@ -144,15 +132,14 @@ class Dbscan:
 
         for current_index, P in enumerate(D):
             #TODO: ADDED
-            #P = P.getrow(current_index).toarray()[0]
+            P = P.toarray()[0]
             if self.__is_visited(current_index):
                 continue
 
             self.__set_point_information(current_index, visited=1)
 
-
-            #TODO: Uncommented
-            #neighbor_points = self.__region_query(D, P, eps)
+            # TODO: Uncommented
+            #neighbor_points = self.__region_query(D, current_index, eps)
             neighbor_points = self.__point_information[current_index]['neighbors']
 
 
@@ -164,10 +151,8 @@ class Dbscan:
                 C.append(
                     self.__expand_cluster(D, P, current_index, neighbor_points, eps, min_pts, current_cluster_index))
 
-            #del P
-                # Print each cluster and it's contents
-                # for c in C:
-                # print(c)
+            del P
+
 
         # Print the amount of clusters
         # print(len(C))
@@ -193,7 +178,9 @@ class Dbscan:
             iterated_indices.add(neighbor_index)
             if not self.__is_visited(neighbor_index):
                 self.__set_point_information(neighbor_index, visited=1)
+                #TODO: Uncommented
                 neighbor_points_m = self.__point_information[neighbor_index]['neighbors']
+                #neighbor_points_m = self.__region_query(D, neighbor_index, eps)
 
                 if len(neighbor_points_m) >= min_pts:
                     neighbor_points = (neighbor_points | neighbor_points_m) - iterated_indices
@@ -203,49 +190,6 @@ class Dbscan:
                 self.__set_point_information(neighbor_index, cluster=current_cluster_index, noise=0)
         return C
 
-    '''def __expand_cluster(self, D, P, P_index, neighbor_points, eps, min_pts, current_cluster_index):
-        C = [P]
-        self.__set_point_information(P_index, cluster=current_cluster_index, noise=0)
-        index = 0
-
-        #TODO: Will be deprecated
-        def contains(item, collection):
-            return len(list(filter(lambda x: x[0] == item[0], collection))) > 0
-
-        # This loop was changed from a foor loop, in order to be able to
-        # iterate through all items in the neighbor_points - in case
-        # it get updated within the loop itself.
-
-        while index < len(neighbor_points):
-            #TODO: Uncommented
-            #P_tuple = nighbor_points[index]
-            P_tuple = D[neighbor_points[index]]
-            if not self.__is_visited(P_tuple[0]):
-                #TODO: Uncommented
-                #self.__set_point_information(P_tuple[0], visited=1)
-                self.__set_point_information(P_tuple, visited=1)
-
-                #TODO: Uncommented
-                # neighbor_points_m = self.__region_query(D, P_tuple[1], eps)
-                neighbor_points_m = self.__point_information[P_index]['set']
-
-                if len(neighbor_points) >= min_pts:
-                    #TODO: Uncommented
-                    #neighbor_points_diff = [x for x in neighbor_points_m if not contains(x, neighbor_points)]
-                    #if len(neighbor_points_diff) > 0:
-                    #    neighbor_points = neighbor_points + neighbor_points_diff
-                    neighbor_points = neighbor_points & neighbor_points_m
-            # TODO: Uncommented
-            # if not self.__is_in_cluster(P_tuple[0]):
-            if not self.__is_in_cluster(P_tuple):
-                #TODO: Uncommented
-                #C.append(P_tuple[1])
-                #self.__set_point_information(P_tuple[0], cluster=current_cluster_index, noise=0)
-                C.append(D[P_tuple])
-                self.__set_point_information(P_tuple, cluster=current_cluster_index, noise=0)
-            index += 1
-
-        return C'''
 
     """
     Computes the distance between two given points.
@@ -255,6 +199,8 @@ class Dbscan:
 
     @staticmethod
     def __compute_distance(A, B):
+        if len(A) == 0 and len(B) == 0:
+            return 0
         return 1 - (len(A & B) / len(A | B))
 
     """
@@ -277,8 +223,24 @@ class Dbscan:
     @param  {list}   P   The point, of which to gather the neighbourhood
     @param  {double} eps The epsilon for the dataset
     """
+    def __region_query(self, D, P_index, eps):
+        neighborhood = set()
+        neighborhood.add(P_index)
 
-    def __region_query(self, D, P, eps):
+        A = self.__point_information[P_index]['set']
+        for index, point in enumerate(D):
+            if P_index not in self.__point_information[index]['neighbors']:
+                B = self.__point_information[index]['set']
+                distance = self.__compute_distance(A, B)
+                if distance <= eps:
+                    self.__point_information[index]['neighbors'].add(P_index)
+                    self.__point_information[P_index]['neighbors'].add(index)
+                    neighborhood.add(index)
+            else:
+                neighborhood.add(index)
+
+        return neighborhood
+    '''def __region_query(self, D, P, eps):
         neighbourhood = []
         A = self.__convert_vector_to_set(P)
         for index, point in enumerate(D):
@@ -286,25 +248,19 @@ class Dbscan:
             # list_sets.append(point_as_set) #--> uncommend this line if you want to have a GLOBAl list of the points as sets
             if self.__compute_distance(A, B) <= eps:
                 neighbourhood.append((index, point))
-        return neighbourhood
+        return neighbourhood'''
 
 
-def pretty_print(dim, result):
+def pretty_print(dim, start_time,result):
     print('Results for ', dim, 'x', dim, ': { clusters: ', result['count'], ', amount in biggest cluster: ',
-          result['max'], '}')
+          result['max'], '}', ' execution time: ', time.time() - start_time)
 
 
 instance = Dbscan()
 
 
-#instance.start(10)
-#instance.start(100)
-#instance.start(1000)
-#instance.start(10000)
-#instance.start(100000)
-
-pretty_print(10, instance.start(10))
-pretty_print(100, instance.start(100))
-pretty_print(1000, instance.start(1000))
-#pretty_print(10000, instance.start(10000))
-#pretty_print(100000, instance.start(100000))
+pretty_print(10, time.time(), instance.start(10))
+pretty_print(100, time.time(), instance.start(100))
+pretty_print(1000, time.time(), instance.start(1000))
+pretty_print(10000, time.time(), instance.start(10000))
+pretty_print(100000, time.time(), instance.start(100000))
