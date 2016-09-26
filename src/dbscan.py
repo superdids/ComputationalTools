@@ -7,13 +7,34 @@ class Dbscan:
 
     __point_information = dict()
 
-    def start(self):
-        data = '../files/data_10points_10dims.dat'
+    def start(self, dim):
+        '''data = '../files/data_10points_10dims.dat'
         small_set = pickle.load(open(data, 'rb'), encoding='latin1')
         matr = ss.csr_matrix(small_set).toarray()
         print(matr)
         M = 2
         eps = 0.4
+        '''
+        M = 2
+        eps = 0.15
+        if dim == 10:
+            data = '../files/data_10points_10dims.dat'
+            eps = 0.4
+        elif dim == 100:
+            data = '../files/data_100points_100dims.dat'
+            eps = 0.3
+        elif dim == 1000:
+            data = '../files/data_1000points_1000dims.dat'
+        elif dim == 10000:
+            data = '../files/data_10000points_10000dims.dat'
+        elif dim == 100000:
+            data = '../files/data_100000points_100000dims.dat'
+        else:
+            raise ValueError('Invalid dimension specification.')
+            return
+        data_set = pickle.load(open(data, 'rb'), encoding='latin1')
+        matr = ss.csr_matrix(data_set).toarray()
+
         self.__dbscan(matr, eps, M)
 
     """
@@ -77,6 +98,7 @@ class Dbscan:
     Before docing this, make sure the variables have proper names.
     '''
     def __dbscan(self, D, eps, min_pts):
+        print('eps is: ', eps)
         current_cluster_index = -1
         C = []
 
@@ -100,10 +122,11 @@ class Dbscan:
             #print(c)
 
         #Print the amount of clusters
-        #print(len(C))
+        print(len(C))
 
         # Print information for each point.
         #print(json.dumps(self.__point_information, indent=2))
+
         self.__point_information = dict()
 
 
@@ -128,7 +151,7 @@ class Dbscan:
 
             if not self.__is_in_cluster(P_tuple[0]):
                 C.append(P_tuple[1])
-                self.__set_point_information(P_index, cluster=current_cluster_index, noise=0)
+                self.__set_point_information(P_tuple[0], cluster=current_cluster_index, noise=0)
             index += 1
 
         return C
@@ -171,4 +194,6 @@ class Dbscan:
                 neighbourhood.append((index, point))
         return neighbourhood
 
-Dbscan().start()
+Dbscan().start(10)
+Dbscan().start(100)
+#Dbscan().start(1000)
