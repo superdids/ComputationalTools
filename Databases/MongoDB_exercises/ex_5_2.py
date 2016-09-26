@@ -63,3 +63,13 @@ for product in raw_data_products:
 
 print data
 
+"""
+Comment of thoughts:
+
+The Northwind data is not suitable for a NoSQL type of database, because the data in the different collections has very
+strong relations between the collections. This makes it hard to query and join data from different collections, because
+it most has to happen in the application layer.
+The best case scenario for a NoSQL database is if the data is stored in a single collection, or different collections
+do not depend on each other.
+"""
+
