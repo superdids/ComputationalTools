@@ -97,13 +97,13 @@ class Dbscan:
 
         #Print each cluster and it's contents
         #for c in C:
-        #    print(c)
+            #print(c)
 
         #Print the amount of clusters
         #print(len(C))
 
         # Print information for each point.
-        print(json.dumps(self.__point_information, indent=2))
+        #print(json.dumps(self.__point_information, indent=2))
         self.__point_information = dict()
 
 
@@ -132,25 +132,7 @@ class Dbscan:
             index += 1
 
         return C
-        '''
-        for P_tuple in neighbor_points:
-            if not self.__is_visited(P_tuple[0]):
-                self.__set_point_information(P_tuple[0], visited=1)
 
-                neighbor_points_m = self.__region_query(D, P_tuple[1], eps)
-                if len(neighbor_points_m) >= min_pts:
-
-                    def contains(item, collection):
-                        return len(list(filter(lambda x: x[0] == item[0], collection))) > 0
-                    # Don't add duplicates when joining the two lists.
-                    neighbor_points += [x for x in neighbor_points_m if not contains(x, neighbor_points)]
-
-            if not self.__is_in_cluster(P_tuple[0]):
-                current_cluster.append(P_tuple[1])
-                self.__set_point_information(P_index, cluster=current_cluster_index)
-
-        return current_cluster
-        '''
     """
     Computes the distance between two given points.
     @param  {set} A  The first point for the distance calculation
