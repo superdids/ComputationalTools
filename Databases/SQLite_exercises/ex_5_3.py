@@ -22,17 +22,17 @@ try:
     cursor.execute(sql)
     raw_data = cursor.fetchall()
     data = {}
-    orders_ids = {}
+    orders_occurrences = {}
 
-    # Here we collect in a dictionary the order IDs and their occurrences, because for each occurrence of an order, it
+    # Here we collect a dictionary of the order IDs and their occurrences, because for each occurrence of an order, it
     # means the order has another product type, with different product data, but the order data is the same.
     # Also, construct a general object for the current order, with an empty list, where we will put the data for the
     # different products of the order, later on.
     for record in raw_data:
         order_id = record[0]
-        if order_id not in orders_ids:
-            orders_ids[order_id] = 0
-        orders_ids[order_id] += 1
+        if order_id not in orders_occurrences:
+            orders_occurrences[order_id] = 0
+        orders_occurrences[order_id] += 1
 
         if record[0] not in data:
             data[record[0]] = {
@@ -52,7 +52,7 @@ try:
     # to the list of products
     for record in raw_data:
         order_id = record[0]
-        if orders_ids[order_id] > 1:
+        if orders_occurrences[order_id] > 1:
             data[order_id]['Products'].append({
                 'Id': record[11],
                 'Name': record[13],
