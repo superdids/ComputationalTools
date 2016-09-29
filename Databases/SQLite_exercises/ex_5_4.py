@@ -3,7 +3,8 @@ import sys
 
 try:
     connection = sqlite.connect('sqlite-northwind.db')
-    connection.text_factory = str
+    connection.text_factory = lambda x: str(x, 'latin1')  # str
+    #connection.text_factory = str
     cursor = connection.cursor()
 
     # Construct the query to be executed. We use a double INNER JOIN because Orders table is related to both
@@ -47,10 +48,10 @@ try:
         print (c, data[c])
 
 
-except sqlite.Error, e:
-    print e
+except sqlite.Error as e:
+    print (e)
     sys.exit(1)
 finally:
     if connection:
         connection.close()
-        print "--> Connection closed."
+        print ("--> Connection closed.")

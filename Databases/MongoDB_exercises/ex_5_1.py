@@ -13,8 +13,14 @@ customers = db.customers
 # Find all records in the Customers doc (table)
 data = customers.find()
 
+# Show only ID and Name when printing information of a customer.
+def format_row(customer):
+    print(customer['CustomerID'], ' ', customer['ContactName'])
+
 # Return only the first 10 records
 count = 0
 while count < 10:
-    print data[count]
+    #print(data[count])
+    format_row(data[count])
     count += 1
+
