@@ -1,61 +1,66 @@
 import sqlite3 as sqlite
 import sys
+import json
+
 try:
     connection = sqlite.connect('sqlite-northwind.db')
     # This does not work in windows.
-    #connection.text_factory = str
+    # connection.text_factory = str
     connection.text_factory = lambda x: str(x, 'latin1')
     cursor = connection.cursor()
 
-    sql =   '''
-
+    sql = '''
             SELECT
-            o.orderId, o.CustomerId, c.ContactName,od.ProductId --or od.ProductId
+            o.CustomerID, c.ContactName,od.ProductID, p.ProductName--or od.ProductId
             FROM 'Order details' od
-            INNER JOIN Orders o ON o.orderId = od.orderId
-            INNER JOIN Customers c ON c.CustomerId = o.CustomerId
+            INNER JOIN Orders o ON o.OrderID = od.OrderID
+            INNER JOIN Customers c ON c.CustomerID = o.CustomerID
+            INNER JOIN Products p ON p.ProductId = od.ProductId
             '''
-
 
     cursor.execute(sql)
     raw_data = cursor.fetchall()
-    # Dictionary with orders that has been placed for product with ID 7.
-    data_with = {}
-    # Dictionary with orders that have been placed for another product ID than 7.
-    data_without = {}
 
-    # Here we initialize a dictionary with key=orderId and value=ProductId,
-    # CustomerId and ContactName (and product name).
+    data = {}
+
+    # Populates the dictionaries with OrderID as key. Associates each order
     for record in raw_data:
-        order_id = record[0]
-        product_id = record[3]
-        obj = {
-            'CustomerId': record[1],
-            'ContactName': record[2],
-            'ProductId': record[3]
-        }
-        if product_id == 7:
-            data_with[order_id] = obj
-        else:
-            data_without[order_id] = obj
-
-    result = {}
-    for key in data_without:
-        if key in data_with:
-            result[key] = data_without[key]
+        product_id = record[2]
+        if record[0] not in data:
+            data[record[0]] = {
+                'ContactName': record[1],
+                'Products': {}
+            }
+        data[record[0]]['Products'][product_id] = record[3]
 
 
-    # Prints each customer that has ordered another product besides product id 7.
-    for index in result:
-        print(result[index])
+    def condition(key):
+        return 7 in data[key]['Products'] and len(data[key]['Products']) > 2
 
 
-    # Prints the amount of distinct products that customers have ordered besides
-    # product id 7.
-    distinct_products_count = len({result[key]['ProductId'] for key in result})
+    # Retrieves every person that has ordered the product with id 7 as
+    # as well as at least another product.
+    data = {key: value for key, value in data.items() if condition(key)}
 
-    print(distinct_products_count)
+    def inner_comprehension():
+        return {}
 
+    # Now we collect every unique product that has been ordered.
+    unique_products = {}
+    for item in data:
+        products = data[item]['Products']
+        for product in products:
+            unique_products[product] = products[product]
+
+    # Remove the product with id 7.
+    del unique_products[7]
+
+    # Using json.dumps for simple formatting of dictionary/json-like data.
+    print(json.dumps(unique_products, indent=4))
+
+    # Prints the amount of unique products that have been ordered when also
+    # ordering the product with id 7.
+    print('Total different products: ', len(unique_products))
 
 except sqlite.Error as e:
     print(e)
