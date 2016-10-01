@@ -35,7 +35,7 @@ try:
 
 
     def condition(key):
-        return 7 in data[key]['Products'] and len(data[key]['Products']) > 2
+        return 7 in data[key]['Products'] and len(data[key]['Products']) > 1
 
 
     # Retrieves every person that has ordered the product with id 7 as

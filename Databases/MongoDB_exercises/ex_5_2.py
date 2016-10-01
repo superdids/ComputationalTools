@@ -19,23 +19,25 @@ order_ids = []
 for order in raw_data_orders:
     order_ids.append(order['OrderID'])
     data[order['OrderID']] = {
-        'OrderId': order['OrderID'],
-        'ShipVia': order['ShipVia'],
-        'ShippedDate': order['ShippedDate'],
-        'EmployeeId': order['EmployeeID'],
-        'ShipCity': order['ShipCity'],
-        'ShipAddress': order['ShipAddress'],
-        'ShipName': order['ShipName'],
-        'ShipCountry': order['ShipCountry'],
-        'OrderDate': order['OrderDate'],
-        'Product': {
-            'Id': None,
-            'Name': None,
-            'QuantityPerUnit': None,
-            'UnitsInStock': None,
-            'Quantity': None,
-            'UnitPrice': None
-        }
+        #'OrderId': order['OrderID'],
+        #'ShipVia': order['ShipVia'],
+        #'ShippedDate': order['ShippedDate'],
+        #'EmployeeId': order['EmployeeID'],
+        #'ShipCity': order['ShipCity'],
+        #'ShipAddress': order['ShipAddress'],
+        #'ShipName': order['ShipName'],
+        #'ShipCountry': order['ShipCountry'],
+        #'OrderDate': order['OrderDate'],
+        #'Product': {
+        #    'Id': None,
+        #    'Name': None,
+        #    'QuantityPerUnit': None,
+        #    'UnitsInStock': None,
+        #    'Quantity': None,
+        #    'UnitPrice': None
+        #}
+        'ProductID': None,
+        'ProductName': None
     }
 
 # Query the Order-Details collection for only certain Orders, by the IDs we collected earlier
@@ -61,7 +63,7 @@ for product in raw_data_products:
             data[order_id]['Product']['QuantityPerUnit'] = product['QuantityPerUnit']
             data[order_id]['Product']['UnitsInStock'] = product['UnitsInStock']
 
-print data
+print(data)
 
 """
 Comment of thoughts:
