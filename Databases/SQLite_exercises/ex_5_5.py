@@ -1,66 +1,45 @@
 import sqlite3 as sqlite
 import sys
-import json
 
 try:
     connection = sqlite.connect('sqlite-northwind.db')
     # This does not work in windows.
-    # connection.text_factory = str
-    connection.text_factory = lambda x: str(x, 'latin1')
+    connection.text_factory = str
+    # connection.text_factory = lambda x: str(x, 'latin1')
     cursor = connection.cursor()
 
+    # Okay, so... cuz we wanted to show off, we made the whole job in a single query with nested SELECT statements.
+    # Look at the query inside-out (from the last nested query towards the beginning). It goes like this:
+    # first we get the IDs of the all customers that have ordered product with id=7. Then, this list of customer IDs we
+    # feed to a query that gets the product IDs of all products that have been ordered by all these selected customers.
+    # And at the end, we feed the resulted list of product IDs to the query that will get the names of all these ordered
+    # products.
     sql = '''
-            SELECT
-            o.CustomerID, c.ContactName,od.ProductID, p.ProductName--or od.ProductId
-            FROM 'Order details' od
-            INNER JOIN Orders o ON o.OrderID = od.OrderID
-            INNER JOIN Customers c ON c.CustomerID = o.CustomerID
-            INNER JOIN Products p ON p.ProductId = od.ProductId
+            SELECT ProductName
+            FROM Products
+            WHERE ProductId IN (
+                SELECT od.ProductId
+                FROM 'Order Details' od
+                INNER JOIN Orders o ON o.OrderId = od.OrderId
+                WHERE o.CustomerId IN (
+                    SELECT o.CustomerId
+                      FROM Orders o
+                      INNER JOIN 'Order Details' od ON o.orderId = od.orderId
+                      WHERE od.ProductId = 7))
+            ;
             '''
 
     cursor.execute(sql)
     raw_data = cursor.fetchall()
 
-    data = {}
-
-    # Populates the dictionaries with OrderID as key. Associates each order
-    for record in raw_data:
-        product_id = record[2]
-        if record[0] not in data:
-            data[record[0]] = {
-                'ContactName': record[1],
-                'Products': {}
-            }
-        data[record[0]]['Products'][product_id] = record[3]
-
-
-    def condition(key):
-        return 7 in data[key]['Products'] and len(data[key]['Products']) > 2
-
-
-    # Retrieves every person that has ordered the product with id 7 as
-    # as well as at least another product.
-    data = {key: value for key, value in data.items() if condition(key)}
-
-    def inner_comprehension():
-        return {}
-
-    # Now we collect every unique product that has been ordered.
-    unique_products = {}
-    for item in data:
-        products = data[item]['Products']
-        for product in products:
-            unique_products[product] = products[product]
-
-    # Remove the product with id 7.
-    del unique_products[7]
-
-    # Using json.dumps for simple formatting of dictionary/json-like data.
-    print(json.dumps(unique_products, indent=4))
-
-    # Prints the amount of unique products that have been ordered when also
-    # ordering the product with id 7.
-    print('Total different products: ', len(unique_products))
+    # Here we just format the resulted list of product names, because the cursor returns a list of sets, and we want
+    # just the product names as separate strings. We push them into a list and print it out.
+    # Then we print out the length of this list, which is in fact the number of distinct products ordered by customers
+    # who have ordered also product with id=7.
+    products = [p[0] for p in raw_data]
+    print 'The number of different products: %d' % len(products)
+    print 'A list of the products names: '
+    print products
 
 except sqlite.Error as e:
     print(e)
