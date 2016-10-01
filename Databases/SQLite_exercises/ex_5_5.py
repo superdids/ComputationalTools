@@ -36,10 +36,10 @@ try:
     # just the product names as separate strings. We push them into a list and print it out.
     # Then we print out the length of this list, which is in fact the number of distinct products ordered by customers
     # who have ordered also product with id=7.
-    products = [p[0] for p in raw_data]
-    print 'The number of different products: %d' % len(products)
+    distinct_products = [p[0] for p in raw_data]
+    print 'The number of different products: %d' % len(distinct_products)
     print 'A list of the products names: '
-    print products
+    print distinct_products
 
 except sqlite.Error as e:
     print(e)
