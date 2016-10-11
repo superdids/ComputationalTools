@@ -1,2 +1,4 @@
 .idea
 Databases/MongoDB_exercises/northwind-mongo/
+.DS_Store
+GraphDB/
