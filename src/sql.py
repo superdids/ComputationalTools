@@ -2,7 +2,7 @@ from pymongo import MongoClient
 import sqlite3 as sqlite
 import sys
 
-class SQL:
+class week_five:
 
     def __init_sqlite_connection(self):
         try:
@@ -397,9 +397,87 @@ class SQL:
 
 
     def exersise_five_sqlite(self):
-        print(3)
+        cursor = self.__init_sqlite_connection()
+
+        # We made the whole job in a single query with nested SELECT statements.
+        # Look at the query inside-out (from the last nested query towards the
+        # beginning). It goes like this: First we get the IDs of the all customers
+        # that have ordered product with id=7. Then, this list of customer IDs we
+        # feed to a query that gets the product IDs of all products that have been
+        # ordered by all these selected customers. And at the end, we feed the resulted
+        # list of product IDs to the query that will get the names of all these ordered
+        # products.
+        sql = '''
+                SELECT ProductName
+                FROM Products
+                WHERE ProductId IN (
+                    SELECT od.ProductId
+                    FROM 'Order Details' od
+                    INNER JOIN Orders o ON o.OrderId = od.OrderId
+                    WHERE o.CustomerId IN (
+                        SELECT o.CustomerId
+                          FROM Orders o
+                          INNER JOIN 'Order Details' od ON o.orderId = od.orderId
+                          WHERE od.ProductId = 7))
+                ;
+                '''
+
+        cursor.execute(sql)
+        raw_data = cursor.fetchall()
+
+        # Here we just format the resulted list of product names, because the
+        # cursor returns a list of sets, and we want just the product names
+        # as separate strings. We push them into a list and print it out.
+        # Then we print out the length of this list, which is in fact the
+        # number of distinct products ordered by customers who have ordered
+        # also product with id=7.
+        distinct_products = [p[0] for p in raw_data]
+        print('The number of different products: %d' % len(distinct_products))
+        print('A list of the products names: ')
+        for item in distinct_products:
+            print('\t', item)
 
     def exersise_five_mongo(self):
-        print(3)
+        db = self.__init_mongo_connection()
+        # Instantiate an object for each collection we are going to use
+        orders = db.orders
+        order_details = db['order-details']
+        products = db.products
 
-SQL().exersise_four_mongo()
+        # Query the Order Details for the records about Product with ID 7
+        # Construct a list of order IDs so that we know which orders to
+        # query for, so that we can find their customers
+        raw_data_order_details = order_details.find({'ProductID': 7})
+        orders_ids = [od['OrderID'] for od in raw_data_order_details]
+
+        # Get the listed orders above
+        # Construct a list of customers IDs, so we know which customers
+        # have made these orders, that are of product with ID 7
+        raw_data_orders = orders.find({'OrderID': {'$in': orders_ids}})
+        customers_ids = [c['CustomerID'] for c in raw_data_orders]
+
+        # Get all orders of all selected customers (from above) that have
+        # ordered product with id=7
+        orders_selected_customers = orders.find({'CustomerID': {'$in': customers_ids}})
+        orders_sel_cust_ids = [o['OrderID'] for o in orders_selected_customers]
+
+        # Get all order details of the above orders (for the selected customers)
+        order_details_selected_customers_orders = order_details.find({'OrderID': {'$in': orders_sel_cust_ids}})
+        products_sel_cust_ids = [od['ProductID'] for od in order_details_selected_customers_orders]
+
+        # Get all products from the above order details records (for the
+        # selected customers)
+        sel_prod_sel_cust = products.find({'ProductID': {'$in': products_sel_cust_ids}})
+
+        # Here we extract just the names of the selected products
+        distinct_products = [p['ProductName'] for p in sel_prod_sel_cust]
+
+        # Then we print out the list of distinct products, and its length,
+        # which is in fact the number of distinct products
+        # ordered by customers who have ordered also product with id=7.
+        print('The number of different products: %d' % len(distinct_products))
+        print('A list of the products names: ')
+        for item in distinct_products:
+            print('\t', item)
+
+week_five().exersise_five_mongo()
