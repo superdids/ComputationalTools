@@ -1,7 +1,7 @@
 from mrjob.job import MRJob
 from mrjob.step import MRStep
 
-class MapReduce(MRJob):
+class Exercise2(MRJob):
 
     # In this function, we specify a customized order
     # of steps to be performed. This is because we will
@@ -46,4 +46,4 @@ class MapReduce(MRJob):
 
 
 if __name__ == '__main__':
-    MapReduce.run()
+    Exercise2.run()
