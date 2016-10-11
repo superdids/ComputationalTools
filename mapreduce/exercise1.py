@@ -18,8 +18,11 @@ class Exercise1(MRJob):
         for word in line.split():
             yield format_string(word), 1
 
-    # The reduction step is now
+    # The reduction step now performs some function on the values list,
+    # and returns a single value as result.
     def reducer(self, key, values):
+        # In our case, we are interested in the sum of occurences of
+        # a word.
         yield key, sum(values)
 
 
