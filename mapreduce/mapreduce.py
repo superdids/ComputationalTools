@@ -1,5 +1,6 @@
 from mrjob.job import MRJob
 from mrjob.step import MRStep
+import itertools
 
 class MapReduce(MRJob):
 
@@ -10,42 +11,88 @@ class MapReduce(MRJob):
     def steps(self):
         return [
             MRStep(mapper=self.mapper_find_neighbors,
-                   reducer=self.reduce_length_two_paths),
+                   reducer=self.forward_neighbors),
             MRStep(mapper=self.map_two,
-                   reducer=self.reduce_two)
+                   reducer=self.reduce_two),
+            MRStep(reducer=self.reduce_three)
         ]
 
-    '''
-    We avoid cycles by 'directing' the vertices' neighborhood.
-    '''
+    # Finds all vertices' neighbors
     def mapper_find_neighbors(self, _, line):
         vertices = line.split()
-        u, v = vertices[1], vertices[0]
-        #print(u, ' ', v)
+        u, v = vertices[0], vertices[1]
         yield u, v
+        yield v, u
 
-    def reduce_length_two_paths(self, v, neighbors):
-        for u in neighbors:
-            for w in neighbors:
-                if u is not w and u is not v and w is not v:
-                    print(v, ': ', '(', u, ' ', w, ')')
-                    yield v, (u,w)
+    def forward_neighbors(self, v, neighbors):
+        a = [x for x in neighbors]
+        #print(v, ' <> ', a)
+        yield v, a
 
-    '''
-    if Input of type #v; (u, w)$ then
-    emit #(u, w); v$
-    if Input of type #(u, v); ∅$ then
-    emit #(u, v); $$
-    '''
+        #for x in neighbors:
+            #yield v, x
+
+    # Now this mapper will match the expected input as the lecture
+    # explained.
     def map_two(self, v, node_pair):
-        if node_pair is None:
-            yield (v[0], v[1]), None
-        else:
-            yield None, 1#((node_pair[0], node_pair[1]), v)
 
-    def reduce_two(self, v, values):
-        if v is None:
-            yield "Triangles: ", sum(values)#len(values)#1#sum(1 if x is not None else 0 for x in values)
+        neighbors = [x for x in node_pair]
+
+        # Ensures that the two-neighboring vertices are always sorted.
+        def f(a,b):
+            return (a, b) if a < b else (b, a)
+
+        return ((f(v, x), neighbors) for x in neighbors)
+
+    # Now we need to find vertices that two neighbors has
+    # in common
+    def reduce_two(self, k, values):
+
+        u, v = k[0], k[1]
+        def remDup(the_list):
+            b = []
+            [b.append(uniq) for uniq in the_list if uniq not in b]
+            return b
+
+        lst = [x for x in values]#remDup(values)
+
+        #lst = [x for x in values]
+
+        #print(k, ' <> ', lst)
+        c = set()
+        c.add(u)
+        c.add(v)
+        #a = set(lst[0])
+        #b = set()
+        length = 0#len(a - c)
+
+        while len(lst) > 1:
+            a = set(lst[0])
+            b = set(lst[len(lst)-1])
+            length += len((a & b) - c)
+            del lst[0]
+            del lst[len(lst)-1]
+
+
+        '''if len(lst) > 1:
+            b = set(lst[1])
+
+        print(k, ' > ', lst, ' ----> ', (a & b) - c)
+
+        length = len((a & b) - c)'''
+        yield None, length / 2
+
+
+
+
+    def reduce_three(self, _, values):
+       # print([x for x in values])
+        yield 'Triangle count: ', sum(values)
+
+        #yield 1,1
+        #string = "Triangle in sequence: ", k, " ? "
+        #str_b = [v for v in values] #any(v is not None for v in values)
+        #yield string, str_b #v#sum(1 if v is not None else 0 for v in values)
 
 if __name__ == '__main__':
     MapReduce.run()
