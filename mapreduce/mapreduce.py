@@ -40,9 +40,9 @@ class MapReduce(MRJob):
     # they will hold both v's and x's neighbor-lists. Thereby, in the later step, we can
     # compare the two-neighbor vertices' common neighbors - which forms triangle-
     # relationships.
-    def map_two(self, v, node_pair):
+    def map_two(self, v, neighbors):
 
-        neighbors = [x for x in node_pair]
+        neighbors = [x for x in neighbors]
 
         # Ensures that the two-neighboring vertices tuple always is sorted.
         def f(a,b):
@@ -52,9 +52,9 @@ class MapReduce(MRJob):
 
     # Now we need to find neighbor vertices that two-neighbor vertices has
     # in common.
-    def reduce_two(self, k, values):
+    def reduce_two(self, t, values):
         # Store the two-neighbor vertices in different variables.
-        u, v = k[0], k[1]
+        u, v = t[0], t[1]
 
         # Removes duplicates from a list, this is performed in order to
         # discard any additional neighboring lists that appears when
@@ -63,20 +63,15 @@ class MapReduce(MRJob):
             to_return = []
             [to_return.append(uniq) for uniq in collection if uniq not in to_return]
             return to_return
+
         values = remDup(values)
 
         # c represents the two-neighbor vertices, which should not be included
         # among the common neighbors set.
         c = set([u,v])
-        #c.add(u)
-        #c.add(v)
 
-        #length = 0
-
-        #if len(lst) > 1:
+        # Create a set of each neighbor-list
         a, b = set(values[0]), set(values[1])
-
-        #print(k, ' > ', values, ' ----> ', (a & b) - c)
 
         # Now we find all neighbors that u and v has in common (again, excluding
         # u and v themselves by performing set difference with c).
@@ -93,8 +88,6 @@ class MapReduce(MRJob):
         # The amount of new neighbors will indicate the amount
         # of new triangle counts to be emitted.
         yield None, len(neighbors)
-
-
 
     # The third reducer sums up the triangle counts.
     def sum_values(self, _, values):
