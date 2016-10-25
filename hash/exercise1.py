@@ -25,15 +25,20 @@ class ExerciseOne:
 
     def load_files_construct_articles(self):
         articles = []
-        article_topics = []
+        earn_list = []
         for i in range(0, 22):
             with open(self.__construct_file_path(i)) as file:
                 data = json.load(file)
                 for article in data:
                     if not self.__should_exclude_article(article):
                         articles.append(article['body'])
-                        article_topics.append(article['topics'])
-        return articles, article_topics
+                        if 'earn' in article['topics']:
+                            earn_list.append('earn')
+                        else:
+                            earn_list.append('0')
+                        #article_topics.append(article['topics'])
+
+        return articles, earn_list #article_topics
 
     def encode_bow(self, articles):
         distinct_words = dict()
@@ -59,7 +64,7 @@ class ExerciseOne:
             bow_matrix.append([0] * N)
             words_in_article = article.split()
             for word in words_in_article:
-                bow_matrix[index][self.__feature_hash(word)] += 1
+                bow_matrix[index][self.__feature_hash(word, buckets=N)] += 1
 
         return bow_matrix
 
@@ -79,10 +84,12 @@ class ExerciseOne:
 
         X = vectorizer.fit_transform(articlos).toarray()
         print(X.shape)
-        forest = RandomForestClassifier(n_estimators=50)
-        Y = MultiLabelBinarizer().fit(topics)
-        earn_index = np.array(Y.classes_).tolist().index('earn')
-        Y = MultiLabelBinarizer().fit_transform(topics)
+        forest = RandomForestClassifier(n_estimators=50, n_jobs=-1)
+        Y = CountVectorizer(analyzer='word', tokenizer=None).fit_transform(topics).toarray().ravel()
+
+        #Y = MultiLabelBinarizer().fit(topics)
+        #earn_index = np.array(Y.classes_).tolist().index('earn')
+        #Y = MultiLabelBinarizer().fit_transform(topics)
         X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size=0.2)
         #topics = pd.Series(topics)
         forest = forest.fit(X_train, Y_train)
@@ -102,10 +109,11 @@ class ExerciseOne:
         print(X.shape)
 
 
-        forest = RandomForestClassifier(n_estimators=50)
-        Y = MultiLabelBinarizer().fit(topics)
-        earn_index = np.array(Y.classes_).tolist().index('earn')
-        Y = MultiLabelBinarizer().fit_transform(topics)
+        forest = RandomForestClassifier(n_estimators=50, n_jobs=-1)
+        #Y = MultiLabelBinarizer().fit(topics)
+        #earn_index = np.array(Y.classes_).tolist().index('earn')
+        #Y = MultiLabelBinarizer().fit_transform(topics)
+        Y = CountVectorizer(analyzer='word', tokenizer=None).fit_transform(topics).toarray().ravel()
 
         X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size=0.2)
 
@@ -113,7 +121,7 @@ class ExerciseOne:
         forest = forest.fit(X_train, Y_train)
         #predict = forest.predict(X_test)
         predict = forest.predict_proba(X_test)
-        
+
         #print(forest.score(X_test, Y_test))
         score = forest.score(X_test, Y_test)
         print(score)
@@ -139,10 +147,8 @@ articles, article_topics = instance.load_files_construct_articles()
 
 #distinct_topics = list(set([x for y in article_topics for x in y]))
 
-
-
 # YEAH, works
-#instance.forest_classifier(article_topics, articles)
+instance.forest_classifier(article_topics, articles)
 
 bow_hash = instance.encode_feature_hash_bow(articles)
 instance.forest_classifier_feature_hashing(article_topics, bow_hash)
