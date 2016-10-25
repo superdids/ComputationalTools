@@ -157,7 +157,7 @@ class Dbscan:
 
     """
     Gathers the neghbourhood of points, for a given point
-    @param  {matrix} D   The matrix dataset, loaded from the file
+    @param  {matrix} D   The matrix dataset, loaded from the file.py
     @param  {list}   P   The point, of which to gather the neighbourhood
     @param  {double} eps The epsilon for the dataset
     """
