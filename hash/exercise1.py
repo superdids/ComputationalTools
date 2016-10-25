@@ -2,6 +2,7 @@ import json
 import numpy as np
 from sklearn.cross_validation import train_test_split
 from sklearn.ensemble import RandomForestClassifier
+from sklearn.feature_extraction import DictVectorizer
 from sklearn.feature_extraction.text import CountVectorizer
 
 class ExerciseOne:
@@ -18,14 +19,15 @@ class ExerciseOne:
 
     def load_files_construct_articles(self):
         articles = []
+        article_topics = []
         for i in range(0, 22):
             with open(self.__construct_file_path(i)) as file:
                 data = json.load(file)
                 for article in data:
                     if not self.__should_exclude_article(article):
-                        article = article['body'].lower()
-                        articles.append(article)
-        return articles
+                        articles.append(article['body'].lower())
+                        article_topics.append(article['topics'])
+        return articles, article_topics
 
     def encode_bow(self, articles):
 
@@ -46,12 +48,13 @@ class ExerciseOne:
 
         return bow_matrix
 
-    def forest_classifier(self, bow_matrix):
+    def forest_classifier(self, bow_matrix, topics):
+        
 
-        dict_vectorizer = DictVectorizer(sparse=False)
-        X = dict_vectorizer.fit_transform(bow_matrix)
+        rfclf = RandomForestClassifier(n_estimators=50)
+        #rfclf.fit(train)
 
-        print(X)
+        #rfclf.predict('earn')
 
 
     def load_files_construct_articles_2(self):
@@ -73,30 +76,31 @@ class ExerciseOne:
                 for article in data:
                     if not self.__should_exclude_article(article):
                         train.append(article)
-                        #topics.append(article['topics'])
-                        #topics.append('earn')
+
 
         return train #features, topics
 
     def encode_bow_2(self, train):
-
+        # vectorizer = CountVectorizer(min_df=1, lowercase=False)
         rfclf = RandomForestClassifier(n_estimators=50)
-        rfclf.fit(train, )
-
-        #vectorizer = CountVectorizer(min_df=1, lowercase=False)
+        rfclf.fit(train)
 
 
+        rfclf.predict('earn')
 
 
 
-instance = ExerciseOne()
+
+
+
+'''instance = ExerciseOne()
 #features, topics
 train = instance.load_files_construct_articles_2()
 #instance.encode_bow_2(features, topics)
-instance.encode_bow_2(train)
+instance.encode_bow_2(train)'''
 
-'''articles = instance.load_files_construct_articles()
+instance = ExerciseOne()
+articles, article_topics = instance.load_files_construct_articles()
 bow_matrix = instance.encode_bow(articles)
-print('(articles x features): (', len(articles), ' x ', len(bow_matrix), ')')
-instance.forest_classifier(bow_matrix)
-'''
+print('(articles x features): (', len(bow_matrix), ' x ', len(bow_matrix[0]), ')')
+instance.forest_classifier(bow_matrix, article_topics)
