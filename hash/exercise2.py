@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 
 import json
+import random
 
 
 class ExerciseOne:
@@ -33,6 +34,7 @@ class ExerciseOne:
      that if a word is present in the article, we put 1 under the index of that word, for the current row of the matrix,
      where each row corresponds to an article.
     """
+
     def encode_bow(self, articles):
         distinct_words = dict()
         count = 0
@@ -58,11 +60,39 @@ class ExerciseOne:
 
         return bow_matrix
 
+    """
+    Generate a list (permutation/hash function) of numbers from 0 to the length of the BOW matrix, shuffled randomly
+    """
+
+    def generate_permutation(self, bow_matrix):
+        bow_matrix_len = len(bow_matrix)
+        permutation = random.sample(xrange(0, bow_matrix_len), bow_matrix_len)
+        return permutation
+
+    """
+    According to the permutation, generate a new matrix, from the BOW matrix
+    """
+
+    def permute_bow_matrix(self, bow_matrix, permutation):
+        permuted_bow = list()
+        for index, number in enumerate(permutation):
+            permuted_bow.append(bow_matrix[permutation[index]])
+
+        return permuted_bow
+
 
 instance = ExerciseOne()
 articles, article_topics = instance.load_files_construct_articles()
 bow_matrix = instance.encode_bow(articles)
 print 'articles x features => ' + str(len(bow_matrix)) + ' x ' + str(len(bow_matrix[0]))
-for bow_row in bow_matrix:
-    print(bow_row)
-# print bow_matrix
+# for bow_row in bow_matrix:
+#     print(bow_row)
+
+permutation_hash_1 = instance.generate_permutation(bow_matrix)
+bow_permuted_1 = instance.permute_bow_matrix(bow_matrix, permutation_hash_1)
+
+permutation_hash_2 = instance.generate_permutation(bow_matrix)
+bow_permuted_2 = instance.permute_bow_matrix(bow_matrix, permutation_hash_2)
+
+permutation_hash_3 = instance.generate_permutation(bow_matrix)
+bow_permuted_3 = instance.permute_bow_matrix(bow_matrix, permutation_hash_3)
