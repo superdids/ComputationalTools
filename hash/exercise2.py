@@ -98,7 +98,7 @@ class ExerciseOne:
 
     def permute_bow_matrix(self, bow, permutation, dist_words):
         shuffled_bow = list()
-        permuted_bow = copy.copy(dist_words)
+        # permuted_bow = copy.copy(dist_words)
 
         # Shuffle and re-arrange the BOW according to the permutation. F.e. if the permutation is:
         # [6, 1, 7, 5, 4, 0, 3, 2, 8)], then the element on index 6 from the BOW will go on index 0 in the shuffled BOW,
@@ -107,14 +107,22 @@ class ExerciseOne:
         for i_p, number in enumerate(permutation):
             shuffled_bow.append(bow[permutation[i_p]])
 
+        # Loop through the `dist_words` (a list of indices of the words in the BOW, with value set()) - so, basically,
+        # iterate for each distinct word, and then inner-iterate through the shuffled BOW matrix (permuted BOW), and
+        # take the word of the current BOW by the current index of the `dist_words`, because each row of the BOW matrix
+        # is identical to the `dist_words` list. Then check if the flag (the value) of the word in that row is 1.
+        # If yes, add the index of that row from the BOW matrix, to the set of the current word in the `dist_words` and
+        # break the loop (because we want to get the index of only the first occurrence of the word in the matrix).
+        # If no, then go to the next row of the BOW matrix, and this way until we find a place where the flag is 1.
         for i_word, set_w in enumerate(dist_words):
             for i_word_list, word_list in enumerate(shuffled_bow):
                 word_flag = word_list[i_word]
                 if word_flag == 1:
-                    permuted_bow[i_word].add(i_word_list)
+                    set_w.add(i_word_list)
                     break
 
-        return permuted_bow
+        return dist_words
+
 
 # ----------------------------------------------------------------------------------------------------------------------
 instance = ExerciseOne()
@@ -122,24 +130,24 @@ articles, article_topics = instance.load_files_construct_articles()
 bow_matrix, dist_words_list = instance.encode_bow(articles)
 
 permutation_hash_1 = instance.generate_permutation(bow_matrix)
-bow_permuted_1 = instance.permute_bow_matrix(bow_matrix, permutation_hash_1, dist_words_list)
-for index, row in enumerate(bow_permuted_1):
+dist_words_list = instance.permute_bow_matrix(bow_matrix, permutation_hash_1, dist_words_list)
+for index, row in enumerate(dist_words_list):
     if len(row) > 0:
         print (index, row)
 
 print '-----------'
 
 permutation_hash_2 = instance.generate_permutation(bow_matrix)
-bow_permuted_2 = instance.permute_bow_matrix(bow_matrix, permutation_hash_2, dist_words_list)
-for index, row in enumerate(bow_permuted_2):
+dist_words_list = instance.permute_bow_matrix(bow_matrix, permutation_hash_2, dist_words_list)
+for index, row in enumerate(dist_words_list):
     if len(row) > 0:
         print (index, row)
 
 print '-----------'
 
 permutation_hash_3 = instance.generate_permutation(bow_matrix)
-bow_permuted_3 = instance.permute_bow_matrix(bow_matrix, permutation_hash_3, dist_words_list)
-for index, row in enumerate(bow_permuted_3):
+dist_words_list = instance.permute_bow_matrix(bow_matrix, permutation_hash_3, dist_words_list)
+for index, row in enumerate(dist_words_list):
     if len(row) > 0:
         print (index, row)
 
