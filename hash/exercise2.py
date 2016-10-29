@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-
+import copy
 import json
 import random
 
@@ -35,8 +35,8 @@ class ExerciseOne:
     #     return articles, article_topics
 
     def load_files_construct_articles(self):
-        articles = []
-        article_topics = []
+        articles_list = []
+        article_topics_list = []
         format_string = lambda string: '' \
             .join(c for c in string if c not in '!"#%&/()=?\\1234567890+.,;:_') \
             .lower()
@@ -45,9 +45,9 @@ class ExerciseOne:
             data = json.load(file)
             for article in data:
                 if not self.__should_exclude_article(article):
-                    articles.append(format_string(article['body']))
-                    article_topics.append(article['topics'])
-        return articles, article_topics
+                    articles_list.append(format_string(article['body']))
+                    article_topics_list.append(article['topics'])
+        return articles_list, article_topics_list
 
     """
     Create a matrix, with width = the number of distinct words from all articles, and is a hashed BOW, in the format
@@ -55,62 +55,63 @@ class ExerciseOne:
      where each row corresponds to an article.
     """
 
-    def encode_bow(self, articles, dist_words_list):
+    def encode_bow(self, articles_list):
         distinct_words = dict()
+        dist_words = list()
         count = 0
-        for article in articles:
+        for article in articles_list:
             words_in_article = article.split()
             for word in words_in_article:
                 # For each distinct word as key, put incremented integer as value
                 if word not in distinct_words:
                     distinct_words[word] = count
-                    dist_words_list.append(set())
+                    dist_words.append(set())
                     count += 1
 
-        bow_matrix = list()
+        bow = list()
         dist_words_count = len(distinct_words)
-        for index, article in enumerate(articles):
+        for i_article, article in enumerate(articles_list):
             # Add a row of 0's for each new article, to the BOW matrix
-            bow_matrix.append([0] * dist_words_count)
+            bow.append([0] * dist_words_count)
 
             words_in_article = article.split()
             # For each word in the article, get its value from the distinct words. That value is actually an index in
             # the current row of the BOW matrix. Put a 1 as a value to that index.
             for word in words_in_article:
-                bow_matrix[index][distinct_words[word]] = 1
+                bow[i_article][distinct_words[word]] = 1
 
-        return bow_matrix
+        return bow, dist_words
 
     """
     Generate a list (permutation/hash function) of numbers from 0 to the length of the BOW matrix, shuffled randomly
     """
 
-    def generate_permutation(self, bow_matrix):
-        bow_matrix_len = len(bow_matrix)
+    def generate_permutation(self, bow):
+        bow_matrix_len = len(bow)
         permutation = random.sample(xrange(0, bow_matrix_len), bow_matrix_len)
         return permutation
 
     """
     According to the permutation, generate a new matrix, from the BOW matrix.
+    Then calculate the MinHash algorithm
     """
 
-    def permute_bow_matrix(self, bow_matrix, permutation, dist_words_list):
+    def permute_bow_matrix(self, bow, permutation, dist_words):
         shuffled_bow = list()
-        permuted_bow = dist_words_list
+        permuted_bow = copy.copy(dist_words)
 
         # Shuffle and re-arrange the BOW according to the permutation. F.e. if the permutation is:
         # [6, 1, 7, 5, 4, 0, 3, 2, 8)], then the element on index 6 from the BOW will go on index 0 in the shuffled BOW,
         # the element on index 1 from the BOW will go index 1 in the shuffled, then el. on index 7 will go on index 2
         # in the shuffled BOW and so on.
-        for index, number in enumerate(permutation):
-            shuffled_bow.append(bow_matrix[permutation[index]])
+        for i_p, number in enumerate(permutation):
+            shuffled_bow.append(bow[permutation[i_p]])
 
-        # TODO: change the algorithm here, so that it finds the first index of the main array at which it finds a 1
-        # TODO ... for each letter, but not just where it finds 1 for first time and break
-        for index, word_list in enumerate(shuffled_bow):
-            for word_index, flag in enumerate(word_list):
-                if flag == 1:
-                    permuted_bow[word_index].add(index)
+        for i_word, set_w in enumerate(dist_words):
+            for i_word_list, word_list in enumerate(shuffled_bow):
+                word_flag = word_list[i_word]
+                if word_flag == 1:
+                    permuted_bow[i_word].add(i_word_list)
                     break
 
         return permuted_bow
@@ -118,8 +119,7 @@ class ExerciseOne:
 # ----------------------------------------------------------------------------------------------------------------------
 instance = ExerciseOne()
 articles, article_topics = instance.load_files_construct_articles()
-dist_words_list = list()
-bow_matrix = instance.encode_bow(articles, dist_words_list)
+bow_matrix, dist_words_list = instance.encode_bow(articles)
 
 permutation_hash_1 = instance.generate_permutation(bow_matrix)
 bow_permuted_1 = instance.permute_bow_matrix(bow_matrix, permutation_hash_1, dist_words_list)
