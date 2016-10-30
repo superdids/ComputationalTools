@@ -5,6 +5,8 @@ import random
 
 __file_prefix = 'reuters-00'
 __file_postfix = '.json'
+regex_only_words = '!"#%&/()=?\\1234567890+.,;:_'
+regex_words_and_numbers = '!"#%&/()=?\\+,;:_'
 
 
 def __construct_file_path(file_index):
@@ -20,7 +22,7 @@ def load_files_construct_articles():
     articles_list = []
     article_topics_list = []
     format_string = lambda string: '' \
-        .join(c for c in string if c not in '!"#%&/()=?\\1234567890+.,;:') \
+        .join(c for c in string if c not in regex_words_and_numbers) \
         .lower()
 
     for i in range(0, 22):
@@ -37,10 +39,10 @@ def load_files_construct_articles_test():
     articles_list = []
     article_topics_list = []
     format_string = lambda string: '' \
-        .join(c for c in string if c not in '!"#%&/()=?\\1234567890+.,;:_') \
+        .join(c for c in string if c not in regex_words_and_numbers) \
         .lower()
 
-    with open('data-files/reuters-021.json') as f:
+    with open('data-files/reuters-000.json') as f:
         data = json.load(f)
         for article in data:
             if not __should_exclude_article(article):
@@ -129,6 +131,12 @@ def permute_bow_matrix(bow, permutation, dist_words):
     return dist_words
 
 
+"""
+Loop through the list of words and the texts in which they appear, and arrange the words (their indices) into buckets,
+putting together the words that have the same sets (so, the words that appear in the same texts).
+"""
+
+
 def match_words_to_buckets(dist_words):
     buckets_list = list()
     checked_words = list()
@@ -187,7 +195,7 @@ def match_words_to_buckets(dist_words):
                     bucket.add(inner_w_index)
                     buckets_list.append(bucket)
                     checked_words.append(outer_w_index)  # add the outer-loop word index to the checked words
-                    checked_words.append(inner_w_index)   # add the inner-loop word index to the checked words
+                    checked_words.append(inner_w_index)  # add the inner-loop word index to the checked words
                     match_set_found = True
                     break
 
@@ -200,6 +208,44 @@ def match_words_to_buckets(dist_words):
             checked_words.append(outer_w_index)
 
     return buckets_list
+
+
+"""
+Match similar texts according to words used in them.
+"""
+
+
+def match_texts_by_buckets(buckets_list, bow):
+    matching_texts = list()
+
+    # Loop through the buckets of words, in order to check in which texts they appear
+    for bucket in buckets_list:
+        # Search to match texts only for buckets with more than certain amount of words, just for testing...
+        if len(bucket) < 15:
+            continue
+
+        current_matched_texts = set()
+
+        # Loop through the BOW matrix and then for each row (article) loop through the bucket of indices of words,
+        # and check for which of the articles (which contain lists of words matched as 0, if not present in the text,
+        # or 1 if present) the words of the current bucket are set as 1. If 10 or more words are matching, it means
+        # the texts are somewhat similar, because they contain 10 equivalent words.
+        # The number 10 has been chosen just for testing purposes.
+        for article_index, words_list in enumerate(bow):
+            matched_words = 0
+
+            for word_index in bucket:
+                if words_list[word_index] == 1:
+                    matched_words += 1
+
+            if matched_words >= 10:
+                current_matched_texts.add(article_index)
+
+        if len(current_matched_texts) > 1:
+            matching_texts.append(current_matched_texts)
+
+    return matching_texts
+
 
 # ----------------------------------------------------------------------------------------------------------------------
 # articles, article_topics = load_files_construct_articles()
@@ -218,15 +264,17 @@ permutation_hash_3 = generate_permutation(bow_matrix)
 dist_words_list = permute_bow_matrix(bow_matrix, permutation_hash_3, dist_words_list)
 print "Permutation 3 finished!"
 
-for index, row in enumerate(dist_words_list):
-    if len(row) > 0:
-        print (index, row)
-
 print '-----------'
 
 buckets = match_words_to_buckets(dist_words_list)
-for b in buckets:
-    print b
-print len(buckets)
 
+print "Matching word-sets to buckets finished!"
+print '-----------'
+
+texts = match_texts_by_buckets(buckets, bow_matrix)
+for t in texts:
+    print t
+
+print "Matching texts finished!"
+print '-----------'
 print 'articles x features => ' + str(len(bow_matrix)) + ' x ' + str(len(bow_matrix[0]))
