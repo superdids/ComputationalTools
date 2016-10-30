@@ -128,8 +128,78 @@ def permute_bow_matrix(bow, permutation, dist_words):
 
     return dist_words
 
-    # def match_words_to_buckets(dist_words):
 
+def match_words_to_buckets(dist_words):
+    buckets_list = list()
+    checked_words = list()
+
+    for outer_w_index, outer_words_set in enumerate(dist_words):
+        # If this word has been compared already (which means it's already in a bucket), simply skip
+        if outer_w_index in checked_words:
+            continue
+
+        match_set_found = False
+
+        # Inner-loop through the list of "word-index: set()" and compare the current outer word-set to each inner
+        # word-set until finding a match.
+        for inner_w_index, inner_words_set in enumerate(dist_words):
+            # If the outer index == the inner, then check if the word-set has already been placed in a bucket.
+            # If not - place it there and continue with the next outer-iteration
+            if outer_w_index == inner_w_index:
+                if len(buckets_list) == 0:
+                    bucket = set()
+                    bucket.add(outer_w_index)
+                    buckets_list.append(bucket)
+                    checked_words.append(outer_w_index)  # add the current word index to the checked words
+                    # The correct bucket is found, so don't iterate through the others
+                    match_set_found = True
+                    break
+                else:
+                    for bucket in buckets_list:
+                        if outer_w_index in bucket:
+                            bucket.add(outer_w_index)
+                            checked_words.append(outer_w_index)  # add the current word index to the checked words
+                            # The correct bucket is found, so don't iterate through the others
+                            match_set_found = True
+                            break
+                    break
+
+            # If there's a match of sets - loop through the already bucketed word indices and find the one where
+            # the index of the outer-loop word index is present in. Then add this inner-loop index to that bucket
+            if len(outer_words_set.symmetric_difference(inner_words_set)) == 0:
+                bucket_found = False
+                for bucket in buckets_list:
+                    if inner_w_index in bucket:
+                        bucket.add(outer_w_index)
+                        checked_words.append(outer_w_index)  # add the current word index to the checked words
+                        # The correct bucket is found, so don't iterate through the others
+                        bucket_found = True
+                        match_set_found = True
+                        break
+
+                if bucket_found is True:
+                    break
+                else:
+                    # This word-set index hasn't been put in a dedicated bucket yet, so add both the inner- and outer-
+                    # loop word-set indices to the same bucket.
+                    bucket = set()
+                    bucket.add(outer_w_index)
+                    bucket.add(inner_w_index)
+                    buckets_list.append(bucket)
+                    checked_words.append(outer_w_index)  # add the outer-loop word index to the checked words
+                    checked_words.append(inner_w_index)   # add the inner-loop word index to the checked words
+                    match_set_found = True
+                    break
+
+        # No match set was found for the current outer-loop word-set index, so just create a new bucket and add this
+        # index to it
+        if match_set_found is False:
+            bucket = set()
+            bucket.add(outer_w_index)
+            buckets_list.append(bucket)
+            checked_words.append(outer_w_index)
+
+    return buckets_list
 
 # ----------------------------------------------------------------------------------------------------------------------
 # articles, article_topics = load_files_construct_articles()
@@ -153,5 +223,10 @@ for index, row in enumerate(dist_words_list):
         print (index, row)
 
 print '-----------'
+
+buckets = match_words_to_buckets(dist_words_list)
+for b in buckets:
+    print b
+print len(buckets)
 
 print 'articles x features => ' + str(len(bow_matrix)) + ' x ' + str(len(bow_matrix[0]))
