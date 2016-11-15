@@ -1,0 +1,1892 @@
+{
+  "meta" : {
+    "view" : {
+      "id" : "ijzp-q8t2",
+      "name" : "Crimes - 2001 to present",
+      "attribution" : "Chicago Police Department",
+      "attributionLink" : "https://portal.chicagopolice.org/portal/page/portal/ClearPath",
+      "averageRating" : 0,
+      "category" : "Public Safety",
+      "createdAt" : 1317405571,
+      "description" : "This dataset reflects reported incidents of crime (with the exception of murders where data exists for each victim) that occurred in the City of Chicago from 2001 to present, minus the most recent seven days. Data is extracted from the Chicago Police Department's CLEAR (Citizen Law Enforcement Analysis and Reporting) system. In order to protect the privacy of crime victims, addresses are shown at the block level only and specific locations are not identified. Should you have questions about this dataset, you may contact the Research & Development Division of the Chicago Police Department at 312.745.6071 or RDAnalysis@chicagopolice.org.  Disclaimer: These crimes may be based upon preliminary information supplied to the Police Department by the reporting parties that have not been verified. The preliminary crime classifications may be changed at a later date based upon additional investigation and there is always the possibility of mechanical or human error. Therefore, the Chicago Police Department does not guarantee (either expressed or implied) the accuracy, completeness, timeliness, or correct sequencing of the information and the information should not be used for comparison purposes over time. The Chicago Police Department will not be responsible for any error or omission, or for the use of, or the results obtained from the use of this information. All data visualizations on maps should be considered approximate and attempts to derive specific addresses are strictly prohibited. The Chicago Police Department is not responsible for the content of any off-site pages that are referenced by or that reference this web page other than an official City of Chicago or Chicago Police Department web page. The user specifically acknowledges that the Chicago Police Department is not responsible for any defamatory, offensive, misleading, or illegal conduct of other users, links, or third parties and that the risk of injury from the foregoing rests entirely with the user.  The unauthorized use of the words \"Chicago Police Department,\" \"Chicago Police,\" or any colorable imitation of these words or the unauthorized use of the Chicago Police Department logo is unlawful. This web page does not, in any way, authorize such use. Data are updated daily. The dataset contains more than 65,000 records/rows of data and cannot be viewed in full in Microsoft Excel. Therefore, when downloading the file, select CSV from the Export menu. Open the file in an ASCII text editor, such as Wordpad, to view and search. To access a list of Chicago Police Department - Illinois Uniform Crime Reporting (IUCR) codes, go to http://data.cityofchicago.org/Public-Safety/Chicago-Police-Department-Illinois-Uniform-Crime-R/c7ck-438e",
+      "displayType" : "table",
+      "downloadCount" : 253417,
+      "hideFromCatalog" : false,
+      "hideFromDataJson" : false,
+      "indexUpdatedAt" : 1478606338,
+      "newBackend" : false,
+      "numberOfComments" : 0,
+      "oid" : 21515155,
+      "publicationAppendEnabled" : false,
+      "publicationDate" : 1465420961,
+      "publicationGroup" : 239997,
+      "publicationStage" : "published",
+      "resourceName" : "crimes",
+      "rowIdentifierColumnId" : 258138724,
+      "rowsUpdatedAt" : 1478605841,
+      "rowsUpdatedBy" : "n9j5-zhen",
+      "tableId" : 11209420,
+      "totalTimesRated" : 0,
+      "viewCount" : 270553,
+      "viewLastModified" : 1465420961,
+      "viewType" : "tabular",
+      "columns" : [ {
+        "id" : -1,
+        "name" : "sid",
+        "dataTypeName" : "meta_data",
+        "fieldName" : ":sid",
+        "position" : 0,
+        "renderTypeName" : "meta_data",
+        "format" : { }
+      }, {
+        "id" : -1,
+        "name" : "id",
+        "dataTypeName" : "meta_data",
+        "fieldName" : ":id",
+        "position" : 0,
+        "renderTypeName" : "meta_data",
+        "format" : { }
+      }, {
+        "id" : -1,
+        "name" : "position",
+        "dataTypeName" : "meta_data",
+        "fieldName" : ":position",
+        "position" : 0,
+        "renderTypeName" : "meta_data",
+        "format" : { }
+      }, {
+        "id" : -1,
+        "name" : "created_at",
+        "dataTypeName" : "meta_data",
+        "fieldName" : ":created_at",
+        "position" : 0,
+        "renderTypeName" : "meta_data",
+        "format" : { }
+      }, {
+        "id" : -1,
+        "name" : "created_meta",
+        "dataTypeName" : "meta_data",
+        "fieldName" : ":created_meta",
+        "position" : 0,
+        "renderTypeName" : "meta_data",
+        "format" : { }
+      }, {
+        "id" : -1,
+        "name" : "updated_at",
+        "dataTypeName" : "meta_data",
+        "fieldName" : ":updated_at",
+        "position" : 0,
+        "renderTypeName" : "meta_data",
+        "format" : { }
+      }, {
+        "id" : -1,
+        "name" : "updated_meta",
+        "dataTypeName" : "meta_data",
+        "fieldName" : ":updated_meta",
+        "position" : 0,
+        "renderTypeName" : "meta_data",
+        "format" : { }
+      }, {
+        "id" : -1,
+        "name" : "meta",
+        "dataTypeName" : "meta_data",
+        "fieldName" : ":meta",
+        "position" : 0,
+        "renderTypeName" : "meta_data",
+        "format" : { }
+      }, {
+        "id" : 258138724,
+        "name" : "ID",
+        "dataTypeName" : "number",
+        "description" : "Unique identifier for the record.",
+        "fieldName" : "id",
+        "position" : 1,
+        "renderTypeName" : "number",
+        "tableColumnId" : 2154841,
+        "width" : 100,
+        "cachedContents" : {
+          "largest" : "10744019",
+          "non_null" : 6199017,
+          "average" : "5793234.303278891",
+          "null" : 0,
+          "top" : [ {
+            "item" : "10743542",
+            "count" : 20
+          }, {
+            "item" : "10743555",
+            "count" : 19
+          }, {
+            "item" : "10743566",
+            "count" : 18
+          }, {
+            "item" : "10743570",
+            "count" : 17
+          }, {
+            "item" : "10743583",
+            "count" : 16
+          }, {
+            "item" : "10743604",
+            "count" : 15
+          }, {
+            "item" : "10743651",
+            "count" : 14
+          }, {
+            "item" : "10743664",
+            "count" : 13
+          }, {
+            "item" : "10743665",
+            "count" : 12
+          }, {
+            "item" : "10743670",
+            "count" : 11
+          }, {
+            "item" : "10743849",
+            "count" : 10
+          }, {
+            "item" : "10743937",
+            "count" : 9
+          }, {
+            "item" : "10743988",
+            "count" : 8
+          }, {
+            "item" : "10744003",
+            "count" : 7
+          }, {
+            "item" : "10744019",
+            "count" : 6
+          }, {
+            "item" : "22895",
+            "count" : 5
+          }, {
+            "item" : "22896",
+            "count" : 4
+          }, {
+            "item" : "22897",
+            "count" : 3
+          }, {
+            "item" : "22898",
+            "count" : 2
+          }, {
+            "item" : "22899",
+            "count" : 1
+          } ],
+          "smallest" : "634",
+          "sum" : "35912357931009"
+        },
+        "format" : {
+          "precisionStyle" : "standard",
+          "noCommas" : "true",
+          "align" : "right"
+        }
+      }, {
+        "id" : 258138725,
+        "name" : "Case Number",
+        "dataTypeName" : "text",
+        "description" : "The Chicago Police Department RD Number (Records Division Number), which is unique to the incident. ",
+        "fieldName" : "case_number",
+        "position" : 2,
+        "renderTypeName" : "text",
+        "tableColumnId" : 1514295,
+        "width" : 134,
+        "cachedContents" : {
+          "largest" : "ZZZ199957",
+          "non_null" : 6199013,
+          "null" : 4,
+          "top" : [ {
+            "item" : "HZ504071",
+            "count" : 20
+          }, {
+            "item" : "HZ504070",
+            "count" : 19
+          }, {
+            "item" : "HZ493164",
+            "count" : 18
+          }, {
+            "item" : "HZ504048",
+            "count" : 17
+          }, {
+            "item" : "HZ504201",
+            "count" : 16
+          }, {
+            "item" : "HZ504025",
+            "count" : 15
+          }, {
+            "item" : "HZ504320",
+            "count" : 14
+          }, {
+            "item" : "HZ504558",
+            "count" : 13
+          }, {
+            "item" : "HZ502025",
+            "count" : 12
+          }, {
+            "item" : "HZ500792",
+            "count" : 11
+          }, {
+            "item" : "HZ504683",
+            "count" : 10
+          }, {
+            "item" : "HZ494787",
+            "count" : 9
+          }, {
+            "item" : "HZ494803",
+            "count" : 8
+          }, {
+            "item" : "HZ494886",
+            "count" : 7
+          }, {
+            "item" : "HZ494869",
+            "count" : 6
+          }, {
+            "item" : "HZ494906",
+            "count" : 5
+          }, {
+            "item" : "HZ494522",
+            "count" : 4
+          } ],
+          "smallest" : "01G050460"
+        },
+        "format" : {
+          "displayStyle" : "plain",
+          "align" : "left",
+          "aggregate" : "count"
+        }
+      }, {
+        "id" : 258138726,
+        "name" : "Date",
+        "dataTypeName" : "calendar_date",
+        "description" : "Date when the incident occurred. this is sometimes a best estimate. ",
+        "fieldName" : "date",
+        "position" : 3,
+        "renderTypeName" : "calendar_date",
+        "tableColumnId" : 1514296,
+        "width" : 148,
+        "cachedContents" : {
+          "largest" : "2016-10-30T23:50:00",
+          "non_null" : 6199017,
+          "null" : 0,
+          "top" : [ {
+            "item" : "2016-10-30T19:30:00",
+            "count" : 20
+          }, {
+            "item" : "2016-10-30T20:00:00",
+            "count" : 19
+          }, {
+            "item" : "2016-10-30T21:00:00",
+            "count" : 18
+          }, {
+            "item" : "2016-10-30T22:00:00",
+            "count" : 17
+          }, {
+            "item" : "2016-10-30T18:00:00",
+            "count" : 16
+          }, {
+            "item" : "2016-10-30T14:00:00",
+            "count" : 15
+          }, {
+            "item" : "2016-10-30T15:00:00",
+            "count" : 14
+          }, {
+            "item" : "2016-10-30T19:00:00",
+            "count" : 13
+          }, {
+            "item" : "2016-10-30T13:00:00",
+            "count" : 12
+          }, {
+            "item" : "2016-10-30T17:00:00",
+            "count" : 11
+          }, {
+            "item" : "2016-10-30T12:00:00",
+            "count" : 10
+          }, {
+            "item" : "2014-07-01T08:00:00",
+            "count" : 9
+          }, {
+            "item" : "2016-10-29T08:30:00",
+            "count" : 8
+          }, {
+            "item" : "2016-10-17T17:00:00",
+            "count" : 7
+          }, {
+            "item" : "2016-10-24T14:30:00",
+            "count" : 6
+          }, {
+            "item" : "2016-10-29T02:00:00",
+            "count" : 5
+          }, {
+            "item" : "2016-10-23T17:00:00",
+            "count" : 4
+          }, {
+            "item" : "2016-10-30T00:59:00",
+            "count" : 3
+          }, {
+            "item" : "2016-10-30T01:19:00",
+            "count" : 2
+          }, {
+            "item" : "2016-10-30T03:38:00",
+            "count" : 1
+          } ],
+          "smallest" : "2001-01-01T00:00:00"
+        },
+        "format" : {
+          "view" : "date_time",
+          "align" : "left"
+        }
+      }, {
+        "id" : 258138727,
+        "name" : "Block",
+        "dataTypeName" : "text",
+        "description" : "The partially redacted address where the incident occurred, placing it on the same block as the actual address. ",
+        "fieldName" : "block",
+        "position" : 4,
+        "renderTypeName" : "text",
+        "tableColumnId" : 1514297,
+        "width" : 160,
+        "cachedContents" : {
+          "largest" : "XX  UNKNOWN",
+          "non_null" : 6199017,
+          "null" : 0,
+          "top" : [ {
+            "item" : "002XX E 60TH ST",
+            "count" : 20
+          }, {
+            "item" : "0000X N MICHIGAN AVE",
+            "count" : 19
+          }, {
+            "item" : "032XX W FOSTER AVE",
+            "count" : 18
+          }, {
+            "item" : "006XX E 79TH ST",
+            "count" : 17
+          }, {
+            "item" : "053XX W GIDDINGS ST",
+            "count" : 16
+          }, {
+            "item" : "013XX W 73RD ST",
+            "count" : 15
+          }, {
+            "item" : "034XX N CLARK ST",
+            "count" : 14
+          }, {
+            "item" : "071XX S HARVARD AVE",
+            "count" : 13
+          }, {
+            "item" : "074XX S PERRY AVE",
+            "count" : 12
+          }, {
+            "item" : "0000X E 75TH ST",
+            "count" : 11
+          }, {
+            "item" : "012XX N CLEVELAND AVE",
+            "count" : 10
+          }, {
+            "item" : "069XX S HARPER AVE",
+            "count" : 9
+          }, {
+            "item" : "052XX S KENWOOD AVE",
+            "count" : 8
+          }, {
+            "item" : "076XX S DREXEL AVE",
+            "count" : 7
+          }, {
+            "item" : "011XX N SPAULDING AVE",
+            "count" : 6
+          }, {
+            "item" : "034XX W HIRSCH ST",
+            "count" : 5
+          }, {
+            "item" : "079XX S VERNON AVE",
+            "count" : 4
+          }, {
+            "item" : "022XX W JACKSON BLVD",
+            "count" : 3
+          }, {
+            "item" : "107XX S HOXIE AVE",
+            "count" : 2
+          }, {
+            "item" : "004XX W EVERGREEN AVE",
+            "count" : 1
+          } ],
+          "smallest" : "0000X E 100 PL"
+        },
+        "format" : {
+          "displayStyle" : "plain",
+          "align" : "left"
+        }
+      }, {
+        "id" : 258138728,
+        "name" : "IUCR",
+        "dataTypeName" : "text",
+        "description" : "The Illinois Unifrom Crime Reporting code. This is directly linked to the Primary Type and Description. See the list of IUCR codes at https://data.cityofchicago.org/d/c7ck-438e.",
+        "fieldName" : "iucr",
+        "position" : 5,
+        "renderTypeName" : "text",
+        "tableColumnId" : 1514298,
+        "width" : 148,
+        "cachedContents" : {
+          "largest" : "9901",
+          "non_null" : 6199017,
+          "null" : 0,
+          "top" : [ {
+            "item" : "0820",
+            "count" : 20
+          }, {
+            "item" : "0460",
+            "count" : 19
+          }, {
+            "item" : "0610",
+            "count" : 18
+          }, {
+            "item" : "0486",
+            "count" : 17
+          }, {
+            "item" : "2820",
+            "count" : 16
+          }, {
+            "item" : "0910",
+            "count" : 15
+          }, {
+            "item" : "0810",
+            "count" : 14
+          }, {
+            "item" : "1330",
+            "count" : 13
+          }, {
+            "item" : "0560",
+            "count" : 12
+          }, {
+            "item" : "1320",
+            "count" : 11
+          }, {
+            "item" : "1310",
+            "count" : 10
+          }, {
+            "item" : "1811",
+            "count" : 9
+          }, {
+            "item" : "0620",
+            "count" : 8
+          }, {
+            "item" : "0320",
+            "count" : 7
+          }, {
+            "item" : "031A",
+            "count" : 6
+          }, {
+            "item" : "2825",
+            "count" : 5
+          }, {
+            "item" : "2027",
+            "count" : 4
+          }, {
+            "item" : "2024",
+            "count" : 3
+          }, {
+            "item" : "0890",
+            "count" : 2
+          }, {
+            "item" : "0860",
+            "count" : 1
+          } ],
+          "smallest" : "0110"
+        },
+        "format" : {
+          "displayStyle" : "plain",
+          "align" : "left"
+        }
+      }, {
+        "id" : 258138729,
+        "name" : "Primary Type",
+        "dataTypeName" : "text",
+        "description" : "The primary description of the IUCR code.",
+        "fieldName" : "primary_type",
+        "position" : 6,
+        "renderTypeName" : "text",
+        "tableColumnId" : 1514299,
+        "width" : 244,
+        "cachedContents" : {
+          "largest" : "WEAPONS VIOLATION",
+          "non_null" : 6199017,
+          "null" : 0,
+          "top" : [ {
+            "item" : "ROBBERY",
+            "count" : 20
+          }, {
+            "item" : "WEAPONS VIOLATION",
+            "count" : 19
+          }, {
+            "item" : "THEFT",
+            "count" : 18
+          }, {
+            "item" : "BATTERY",
+            "count" : 17
+          }, {
+            "item" : "INTERFERENCE WITH PUBLIC OFFICER",
+            "count" : 16
+          }, {
+            "item" : "NARCOTICS",
+            "count" : 15
+          }, {
+            "item" : "BURGLARY",
+            "count" : 14
+          }, {
+            "item" : "OTHER OFFENSE",
+            "count" : 13
+          }, {
+            "item" : "MOTOR VEHICLE THEFT",
+            "count" : 12
+          }, {
+            "item" : "DECEPTIVE PRACTICE",
+            "count" : 11
+          }, {
+            "item" : "OBSCENITY",
+            "count" : 10
+          }, {
+            "item" : "CRIMINAL TRESPASS",
+            "count" : 9
+          }, {
+            "item" : "ASSAULT",
+            "count" : 8
+          }, {
+            "item" : "CRIMINAL DAMAGE",
+            "count" : 7
+          }, {
+            "item" : "ARSON",
+            "count" : 6
+          }, {
+            "item" : "PUBLIC PEACE VIOLATION",
+            "count" : 5
+          }, {
+            "item" : "PROSTITUTION",
+            "count" : 4
+          }, {
+            "item" : "SEX OFFENSE",
+            "count" : 3
+          }, {
+            "item" : "STALKING",
+            "count" : 2
+          }, {
+            "item" : "OFFENSE INVOLVING CHILDREN",
+            "count" : 1
+          } ],
+          "smallest" : "ARSON"
+        },
+        "format" : {
+          "displayStyle" : "plain",
+          "align" : "left"
+        }
+      }, {
+        "id" : 258138730,
+        "name" : "Description",
+        "dataTypeName" : "text",
+        "description" : "The secondary description of the IUCR code, a subcategory of the primary description.",
+        "fieldName" : "description",
+        "position" : 7,
+        "renderTypeName" : "text",
+        "tableColumnId" : 1514300,
+        "width" : 298,
+        "cachedContents" : {
+          "largest" : "WIREROOM/SPORTS",
+          "non_null" : 6199017,
+          "null" : 0,
+          "top" : [ {
+            "item" : "$500 AND UNDER",
+            "count" : 20
+          }, {
+            "item" : "SIMPLE",
+            "count" : 19
+          }, {
+            "item" : "FORCIBLE ENTRY",
+            "count" : 18
+          }, {
+            "item" : "DOMESTIC BATTERY SIMPLE",
+            "count" : 17
+          }, {
+            "item" : "TELEPHONE THREAT",
+            "count" : 16
+          }, {
+            "item" : "AUTOMOBILE",
+            "count" : 15
+          }, {
+            "item" : "OVER $500",
+            "count" : 14
+          }, {
+            "item" : "TO LAND",
+            "count" : 13
+          }, {
+            "item" : "TO VEHICLE",
+            "count" : 12
+          }, {
+            "item" : "TO PROPERTY",
+            "count" : 11
+          }, {
+            "item" : "POSS: CANNABIS 30GMS OR LESS",
+            "count" : 10
+          }, {
+            "item" : "POSS: HEROIN(WHITE)",
+            "count" : 9
+          }, {
+            "item" : "UNLAWFUL ENTRY",
+            "count" : 8
+          }, {
+            "item" : "ARMED: HANDGUN",
+            "count" : 7
+          }, {
+            "item" : "STRONGARM - NO WEAPON",
+            "count" : 6
+          }, {
+            "item" : "HARASSMENT BY TELEPHONE",
+            "count" : 5
+          }, {
+            "item" : "AGGRAVATED: OTHER DANG WEAPON",
+            "count" : 4
+          }, {
+            "item" : "POSS: CRACK",
+            "count" : 3
+          }, {
+            "item" : "FROM BUILDING",
+            "count" : 2
+          }, {
+            "item" : "RETAIL THEFT",
+            "count" : 1
+          } ],
+          "smallest" : "$300 AND UNDER"
+        },
+        "format" : {
+          "displayStyle" : "plain",
+          "align" : "left"
+        }
+      }, {
+        "id" : 258138731,
+        "name" : "Location Description",
+        "dataTypeName" : "text",
+        "description" : "Description of the location where the incident occurred.",
+        "fieldName" : "location_description",
+        "position" : 8,
+        "renderTypeName" : "text",
+        "tableColumnId" : 1514301,
+        "width" : 340,
+        "cachedContents" : {
+          "largest" : "YMCA",
+          "non_null" : 6197270,
+          "null" : 1747,
+          "top" : [ {
+            "item" : "OTHER",
+            "count" : 20
+          }, {
+            "item" : "SIDEWALK",
+            "count" : 19
+          }, {
+            "item" : "STREET",
+            "count" : 18
+          }, {
+            "item" : "APARTMENT",
+            "count" : 17
+          }, {
+            "item" : "ALLEY",
+            "count" : 16
+          }, {
+            "item" : "RESIDENCE",
+            "count" : 15
+          }, {
+            "item" : "SCHOOL, PUBLIC, BUILDING",
+            "count" : 14
+          }, {
+            "item" : "PARKING LOT/GARAGE(NON.RESID.)",
+            "count" : 13
+          }, {
+            "item" : "GROCERY FOOD STORE",
+            "count" : 12
+          }, {
+            "item" : "VEHICLE NON-COMMERCIAL",
+            "count" : 11
+          }, {
+            "item" : "RESTAURANT",
+            "count" : 10
+          }, {
+            "item" : "RESIDENCE PORCH/HALLWAY",
+            "count" : 9
+          }, {
+            "item" : "GAS STATION",
+            "count" : 8
+          }, {
+            "item" : "SMALL RETAIL STORE",
+            "count" : 7
+          }, {
+            "item" : "RESIDENCE-GARAGE",
+            "count" : 6
+          }, {
+            "item" : "DEPARTMENT STORE",
+            "count" : 5
+          }, {
+            "item" : "PARK PROPERTY",
+            "count" : 4
+          }, {
+            "item" : "COMMERCIAL / BUSINESS OFFICE",
+            "count" : 3
+          }, {
+            "item" : "DRUG STORE",
+            "count" : 2
+          }, {
+            "item" : "CHA APARTMENT",
+            "count" : 1
+          } ],
+          "smallest" : "ABANDONED BUILDING"
+        },
+        "format" : {
+          "displayStyle" : "plain",
+          "align" : "left"
+        }
+      }, {
+        "id" : 258138732,
+        "name" : "Arrest",
+        "dataTypeName" : "checkbox",
+        "description" : "Indicates whether an arrest was made.",
+        "fieldName" : "arrest",
+        "position" : 9,
+        "renderTypeName" : "checkbox",
+        "tableColumnId" : 1514302,
+        "width" : 106,
+        "cachedContents" : {
+          "largest" : true,
+          "non_null" : 6199017,
+          "null" : 0,
+          "top" : [ {
+            "item" : true,
+            "count" : 20
+          }, {
+            "item" : false,
+            "count" : 19
+          } ],
+          "smallest" : false
+        },
+        "format" : {
+          "align" : "center"
+        }
+      }, {
+        "id" : 258138733,
+        "name" : "Domestic",
+        "dataTypeName" : "checkbox",
+        "description" : "Indicates whether the incident was domestic-related as defined by the Illinois Domestic Violence Act.",
+        "fieldName" : "domestic",
+        "position" : 10,
+        "renderTypeName" : "checkbox",
+        "tableColumnId" : 1514303,
+        "width" : 127,
+        "cachedContents" : {
+          "largest" : true,
+          "non_null" : 6199017,
+          "null" : 0,
+          "top" : [ {
+            "item" : false,
+            "count" : 20
+          }, {
+            "item" : true,
+            "count" : 19
+          } ],
+          "smallest" : false
+        },
+        "format" : {
+          "align" : "center"
+        }
+      }, {
+        "id" : 258138734,
+        "name" : "Beat",
+        "dataTypeName" : "text",
+        "description" : "Indicates the beat where the incident occurred.  A beat is the smallest police geographic area – each beat has a dedicated police beat car.  Three to five beats make up a police sector, and three sectors make up a police district.  The Chicago Police Department has 22 police districts.  \n\nSee the beats at https://data.cityofchicago.org/d/aerh-rz74.\n",
+        "fieldName" : "beat",
+        "position" : 11,
+        "renderTypeName" : "text",
+        "tableColumnId" : 1514304,
+        "width" : 148,
+        "cachedContents" : {
+          "largest" : "2535",
+          "non_null" : 6199017,
+          "null" : 0,
+          "top" : [ {
+            "item" : "1821",
+            "count" : 20
+          }, {
+            "item" : "0114",
+            "count" : 19
+          }, {
+            "item" : "1713",
+            "count" : 18
+          }, {
+            "item" : "0624",
+            "count" : 17
+          }, {
+            "item" : "1623",
+            "count" : 16
+          }, {
+            "item" : "0734",
+            "count" : 15
+          }, {
+            "item" : "1924",
+            "count" : 14
+          }, {
+            "item" : "0731",
+            "count" : 13
+          }, {
+            "item" : "0623",
+            "count" : 12
+          }, {
+            "item" : "0332",
+            "count" : 11
+          }, {
+            "item" : "0234",
+            "count" : 10
+          }, {
+            "item" : "1121",
+            "count" : 9
+          }, {
+            "item" : "1422",
+            "count" : 8
+          }, {
+            "item" : "1225",
+            "count" : 7
+          }, {
+            "item" : "0434",
+            "count" : 6
+          }, {
+            "item" : "0712",
+            "count" : 5
+          } ],
+          "smallest" : "0111"
+        },
+        "format" : {
+          "displayStyle" : "plain",
+          "align" : "left"
+        }
+      }, {
+        "id" : 258138735,
+        "name" : "District",
+        "dataTypeName" : "text",
+        "description" : "Indicates the police district where the incident occurred.  See the districts at https://data.cityofchicago.org/d/fthy-xz3r.",
+        "fieldName" : "district",
+        "position" : 12,
+        "renderTypeName" : "text",
+        "tableColumnId" : 5086344,
+        "width" : 100,
+        "cachedContents" : {
+          "largest" : "12",
+          "non_null" : 6198968,
+          "null" : 49,
+          "top" : [ {
+            "item" : "024",
+            "count" : 20
+          }, {
+            "item" : "015",
+            "count" : 19
+          }, {
+            "item" : "007",
+            "count" : 18
+          }, {
+            "item" : "001",
+            "count" : 17
+          }, {
+            "item" : "004",
+            "count" : 16
+          }, {
+            "item" : "022",
+            "count" : 15
+          }, {
+            "item" : "014",
+            "count" : 14
+          }, {
+            "item" : "003",
+            "count" : 13
+          }, {
+            "item" : "016",
+            "count" : 12
+          }, {
+            "item" : "002",
+            "count" : 11
+          }, {
+            "item" : "025",
+            "count" : 10
+          }, {
+            "item" : "019",
+            "count" : 9
+          }, {
+            "item" : "010",
+            "count" : 8
+          }, {
+            "item" : "005",
+            "count" : 7
+          }, {
+            "item" : "009",
+            "count" : 6
+          }, {
+            "item" : "008",
+            "count" : 5
+          }, {
+            "item" : "011",
+            "count" : 4
+          }, {
+            "item" : "012",
+            "count" : 3
+          }, {
+            "item" : "006",
+            "count" : 2
+          }, {
+            "item" : "017",
+            "count" : 1
+          } ],
+          "smallest" : "001"
+        },
+        "format" : {
+          "displayStyle" : "plain",
+          "align" : "left"
+        }
+      }, {
+        "id" : 258138736,
+        "name" : "Ward",
+        "dataTypeName" : "number",
+        "description" : "The ward (City Council district) where the incident occurred.  See the wards at https://data.cityofchicago.org/d/sp34-6z76.",
+        "fieldName" : "ward",
+        "position" : 13,
+        "renderTypeName" : "number",
+        "tableColumnId" : 1514305,
+        "width" : 148,
+        "cachedContents" : {
+          "largest" : "50",
+          "non_null" : 5584152,
+          "average" : "22.61089132244251",
+          "null" : 614865,
+          "top" : [ {
+            "item" : "37",
+            "count" : 20
+          }, {
+            "item" : "2",
+            "count" : 19
+          }, {
+            "item" : "8",
+            "count" : 18
+          }, {
+            "item" : "16",
+            "count" : 17
+          }, {
+            "item" : "7",
+            "count" : 16
+          }, {
+            "item" : "17",
+            "count" : 15
+          }, {
+            "item" : "24",
+            "count" : 14
+          }, {
+            "item" : "21",
+            "count" : 13
+          }, {
+            "item" : "28",
+            "count" : 12
+          }, {
+            "item" : "34",
+            "count" : 11
+          }, {
+            "item" : "3",
+            "count" : 10
+          }, {
+            "item" : "42",
+            "count" : 9
+          }, {
+            "item" : "9",
+            "count" : 8
+          }, {
+            "item" : "15",
+            "count" : 7
+          }, {
+            "item" : "27",
+            "count" : 6
+          }, {
+            "item" : "6",
+            "count" : 5
+          }, {
+            "item" : "20",
+            "count" : 4
+          }, {
+            "item" : "5",
+            "count" : 3
+          }, {
+            "item" : "29",
+            "count" : 2
+          }, {
+            "item" : "4",
+            "count" : 1
+          } ],
+          "smallest" : "1",
+          "sum" : "126262654"
+        },
+        "format" : {
+          "precisionStyle" : "standard",
+          "noCommas" : "false",
+          "align" : "right"
+        }
+      }, {
+        "id" : 258138737,
+        "name" : "Community Area",
+        "dataTypeName" : "text",
+        "description" : "Indicates the community area where the incident occurred.  Chicago has 77 community areas. \n\nSee the community areas at https://data.cityofchicago.org/d/cauq-8yn6.\n",
+        "fieldName" : "community_area",
+        "position" : 14,
+        "renderTypeName" : "text",
+        "tableColumnId" : 5086360,
+        "width" : 170,
+        "cachedContents" : {
+          "largest" : "9",
+          "non_null" : 5582965,
+          "null" : 616052,
+          "top" : [ {
+            "item" : "25",
+            "count" : 20
+          }, {
+            "item" : "67",
+            "count" : 19
+          }, {
+            "item" : "68",
+            "count" : 18
+          }, {
+            "item" : "69",
+            "count" : 17
+          }, {
+            "item" : "28",
+            "count" : 16
+          }, {
+            "item" : "29",
+            "count" : 15
+          }, {
+            "item" : "49",
+            "count" : 14
+          }, {
+            "item" : "24",
+            "count" : 13
+          }, {
+            "item" : "43",
+            "count" : 12
+          }, {
+            "item" : "23",
+            "count" : 11
+          }, {
+            "item" : "8",
+            "count" : 10
+          }, {
+            "item" : "71",
+            "count" : 9
+          }, {
+            "item" : "66",
+            "count" : 8
+          }, {
+            "item" : "22",
+            "count" : 7
+          }, {
+            "item" : "61",
+            "count" : 6
+          }, {
+            "item" : "44",
+            "count" : 5
+          }, {
+            "item" : "32",
+            "count" : 4
+          }, {
+            "item" : "6",
+            "count" : 3
+          }, {
+            "item" : "26",
+            "count" : 2
+          }, {
+            "item" : "27",
+            "count" : 1
+          } ],
+          "smallest" : "0"
+        },
+        "format" : {
+          "displayStyle" : "plain",
+          "align" : "left"
+        }
+      }, {
+        "id" : 258138738,
+        "name" : "FBI Code",
+        "dataTypeName" : "text",
+        "description" : "Indicates the crime classification as outlined in the FBI's National Incident-Based Reporting System (NIBRS).\n\nSee the Chicago Police Department listing of these classifications at http://gis.chicagopolice.org/clearmap_crime_sums/crime_types.html.\n",
+        "fieldName" : "fbi_code",
+        "position" : 15,
+        "renderTypeName" : "text",
+        "tableColumnId" : 1514306,
+        "width" : 196,
+        "cachedContents" : {
+          "largest" : "26",
+          "non_null" : 6199017,
+          "null" : 0,
+          "top" : [ {
+            "item" : "03",
+            "count" : 20
+          }, {
+            "item" : "15",
+            "count" : 19
+          }, {
+            "item" : "06",
+            "count" : 18
+          }, {
+            "item" : "08B",
+            "count" : 17
+          }, {
+            "item" : "26",
+            "count" : 16
+          }, {
+            "item" : "18",
+            "count" : 15
+          }, {
+            "item" : "05",
+            "count" : 14
+          }, {
+            "item" : "04B",
+            "count" : 13
+          }, {
+            "item" : "07",
+            "count" : 12
+          }, {
+            "item" : "11",
+            "count" : 11
+          }, {
+            "item" : "17",
+            "count" : 10
+          }, {
+            "item" : "08A",
+            "count" : 9
+          }, {
+            "item" : "14",
+            "count" : 8
+          }, {
+            "item" : "04A",
+            "count" : 7
+          }, {
+            "item" : "09",
+            "count" : 6
+          }, {
+            "item" : "10",
+            "count" : 5
+          }, {
+            "item" : "24",
+            "count" : 4
+          }, {
+            "item" : "16",
+            "count" : 3
+          }, {
+            "item" : "02",
+            "count" : 2
+          }, {
+            "item" : "20",
+            "count" : 1
+          } ],
+          "smallest" : "01A"
+        },
+        "format" : {
+          "displayStyle" : "plain",
+          "align" : "left"
+        }
+      }, {
+        "id" : 258138739,
+        "name" : "X Coordinate",
+        "dataTypeName" : "number",
+        "description" : "The x coordinate of the location where the incident occurred in State Plane Illinois East NAD 1983 projection.  This location is shifted from the actual location for partial redaction but falls on the same block.",
+        "fieldName" : "x_coordinate",
+        "position" : 16,
+        "renderTypeName" : "number",
+        "tableColumnId" : 1514307,
+        "width" : 143,
+        "cachedContents" : {
+          "largest" : "1205119",
+          "non_null" : 6129312,
+          "average" : "1164472.903765056",
+          "null" : 69705,
+          "top" : [ {
+            "item" : "1138752",
+            "count" : 20
+          }, {
+            "item" : "1184347",
+            "count" : 19
+          }, {
+            "item" : "1149275",
+            "count" : 18
+          }, {
+            "item" : "1168787",
+            "count" : 17
+          }, {
+            "item" : "1179556",
+            "count" : 16
+          }, {
+            "item" : "1144998",
+            "count" : 15
+          }, {
+            "item" : "1170954",
+            "count" : 14
+          }, {
+            "item" : "1175463",
+            "count" : 13
+          }, {
+            "item" : "1163660",
+            "count" : 12
+          }, {
+            "item" : "1161649",
+            "count" : 11
+          }, {
+            "item" : "1153118",
+            "count" : 10
+          }, {
+            "item" : "1180622",
+            "count" : 9
+          }, {
+            "item" : "1161646",
+            "count" : 8
+          }, {
+            "item" : "1195226",
+            "count" : 7
+          }, {
+            "item" : "1172929",
+            "count" : 6
+          }, {
+            "item" : "1169518",
+            "count" : 5
+          } ],
+          "smallest" : "0",
+          "sum" : "7137417742722"
+        },
+        "format" : {
+          "precisionStyle" : "standard",
+          "noCommas" : "true",
+          "align" : "right"
+        }
+      }, {
+        "id" : 258138740,
+        "name" : "Y Coordinate",
+        "dataTypeName" : "number",
+        "description" : "The y coordinate of the location where the incident occurred in State Plane Illinois East NAD 1983 projection. This location is shifted from the actual location for partial redaction but falls on the same block.",
+        "fieldName" : "y_coordinate",
+        "position" : 17,
+        "renderTypeName" : "number",
+        "tableColumnId" : 1514308,
+        "width" : 142,
+        "cachedContents" : {
+          "largest" : "1951622",
+          "non_null" : 6129312,
+          "average" : "1885626.731911184",
+          "null" : 69705,
+          "top" : [ {
+            "item" : "1908547",
+            "count" : 20
+          }, {
+            "item" : "1861818",
+            "count" : 19
+          }, {
+            "item" : "1910332",
+            "count" : 18
+          }, {
+            "item" : "1853351",
+            "count" : 17
+          }, {
+            "item" : "1879684",
+            "count" : 16
+          }, {
+            "item" : "1916279",
+            "count" : 15
+          }, {
+            "item" : "1898857",
+            "count" : 14
+          }, {
+            "item" : "1903198",
+            "count" : 13
+          }, {
+            "item" : "1911343",
+            "count" : 12
+          }, {
+            "item" : "1887500",
+            "count" : 11
+          }, {
+            "item" : "1909095",
+            "count" : 10
+          }, {
+            "item" : "1852384",
+            "count" : 9
+          }, {
+            "item" : "1898661",
+            "count" : 8
+          }, {
+            "item" : "1834256",
+            "count" : 7
+          }, {
+            "item" : "1909277",
+            "count" : 6
+          }, {
+            "item" : "1866994",
+            "count" : 5
+          } ],
+          "smallest" : "0",
+          "sum" : "11557594555424"
+        },
+        "format" : {
+          "precisionStyle" : "standard",
+          "noCommas" : "true",
+          "align" : "right"
+        }
+      }, {
+        "id" : 258138741,
+        "name" : "Year",
+        "dataTypeName" : "number",
+        "description" : "Year the incident occurred.",
+        "fieldName" : "year",
+        "position" : 18,
+        "renderTypeName" : "number",
+        "tableColumnId" : 1518776,
+        "width" : 100,
+        "cachedContents" : {
+          "largest" : "2016",
+          "non_null" : 6199017,
+          "average" : "2007.524810304602",
+          "null" : 0,
+          "top" : [ {
+            "item" : "2015",
+            "count" : 20
+          }, {
+            "item" : "2016",
+            "count" : 19
+          }, {
+            "item" : "2010",
+            "count" : 18
+          }, {
+            "item" : "2013",
+            "count" : 17
+          }, {
+            "item" : "2014",
+            "count" : 16
+          }, {
+            "item" : "2011",
+            "count" : 15
+          }, {
+            "item" : "2001",
+            "count" : 14
+          }, {
+            "item" : "2012",
+            "count" : 13
+          }, {
+            "item" : "2008",
+            "count" : 12
+          }, {
+            "item" : "2004",
+            "count" : 11
+          }, {
+            "item" : "2009",
+            "count" : 10
+          }, {
+            "item" : "2005",
+            "count" : 9
+          }, {
+            "item" : "2006",
+            "count" : 8
+          }, {
+            "item" : "2007",
+            "count" : 7
+          }, {
+            "item" : "2003",
+            "count" : 6
+          }, {
+            "item" : "2002",
+            "count" : 5
+          } ],
+          "smallest" : "2001",
+          "sum" : "12444680427"
+        },
+        "format" : {
+          "precisionStyle" : "standard",
+          "noCommas" : "true",
+          "align" : "right"
+        }
+      }, {
+        "id" : 258138742,
+        "name" : "Updated On",
+        "dataTypeName" : "calendar_date",
+        "description" : "Date and time the record was last updated.",
+        "fieldName" : "updated_on",
+        "position" : 19,
+        "renderTypeName" : "calendar_date",
+        "tableColumnId" : 2154842,
+        "width" : 164,
+        "cachedContents" : {
+          "largest" : "2016-11-06T15:51:13",
+          "non_null" : 6199017,
+          "null" : 0,
+          "top" : [ {
+            "item" : "2015-08-17T15:03:40",
+            "count" : 20
+          }, {
+            "item" : "2016-04-15T08:55:02",
+            "count" : 19
+          }, {
+            "item" : "2016-02-04T06:33:39",
+            "count" : 18
+          }, {
+            "item" : "2016-10-01T15:49:21",
+            "count" : 17
+          }, {
+            "item" : "2016-10-04T15:52:50",
+            "count" : 16
+          }, {
+            "item" : "2016-10-06T15:54:49",
+            "count" : 15
+          }, {
+            "item" : "2016-10-07T15:55:01",
+            "count" : 14
+          }, {
+            "item" : "2016-10-08T15:46:57",
+            "count" : 13
+          }, {
+            "item" : "2016-10-09T15:49:15",
+            "count" : 12
+          }, {
+            "item" : "2016-10-10T15:48:36",
+            "count" : 11
+          }, {
+            "item" : "2016-10-11T15:51:41",
+            "count" : 10
+          }, {
+            "item" : "2016-10-12T15:49:36",
+            "count" : 9
+          }, {
+            "item" : "2016-10-13T15:46:59",
+            "count" : 8
+          }, {
+            "item" : "2016-10-14T16:07:57",
+            "count" : 7
+          }, {
+            "item" : "2016-10-15T15:46:46",
+            "count" : 6
+          }, {
+            "item" : "2016-10-16T15:51:57",
+            "count" : 5
+          }, {
+            "item" : "2016-10-17T15:51:16",
+            "count" : 4
+          }, {
+            "item" : "2016-10-18T15:59:35",
+            "count" : 3
+          }, {
+            "item" : "2016-10-19T15:51:11",
+            "count" : 2
+          }, {
+            "item" : "2016-10-20T15:52:17",
+            "count" : 1
+          } ],
+          "smallest" : "2006-03-31T22:03:38"
+        },
+        "format" : {
+          "view" : "date_time",
+          "align" : "left"
+        }
+      }, {
+        "id" : 258138743,
+        "name" : "Latitude",
+        "dataTypeName" : "number",
+        "description" : "The latitude of the location where the incident occurred. This location is shifted from the actual location for partial redaction but falls on the same block.",
+        "fieldName" : "latitude",
+        "position" : 20,
+        "renderTypeName" : "number",
+        "tableColumnId" : 1514309,
+        "width" : 119,
+        "cachedContents" : {
+          "largest" : "42.022910333",
+          "non_null" : 6129312,
+          "average" : "41.84175688719405",
+          "null" : 69705,
+          "top" : [ {
+            "item" : "41.905175582",
+            "count" : 20
+          }, {
+            "item" : "41.775998479",
+            "count" : 19
+          }, {
+            "item" : "41.909876235",
+            "count" : 18
+          }, {
+            "item" : "41.753114009",
+            "count" : 17
+          }, {
+            "item" : "41.825135181",
+            "count" : 16
+          }, {
+            "item" : "41.926277288",
+            "count" : 15
+          }, {
+            "item" : "41.87794002",
+            "count" : 14
+          }, {
+            "item" : "41.889751946",
+            "count" : 13
+          }, {
+            "item" : "41.91235932",
+            "count" : 12
+          }, {
+            "item" : "41.846974193",
+            "count" : 11
+          }, {
+            "item" : "41.906406388",
+            "count" : 10
+          }, {
+            "item" : "41.750196978",
+            "count" : 9
+          }, {
+            "item" : "41.87760112",
+            "count" : 8
+          }, {
+            "item" : "41.700104464",
+            "count" : 7
+          }, {
+            "item" : "41.906489594",
+            "count" : 6
+          }, {
+            "item" : "41.7905363",
+            "count" : 5
+          } ],
+          "smallest" : "36.619446395",
+          "sum" : "256461182.589761128"
+        },
+        "format" : {
+          "precisionStyle" : "standard",
+          "noCommas" : "false",
+          "align" : "right"
+        }
+      }, {
+        "id" : 258138744,
+        "name" : "Longitude",
+        "dataTypeName" : "number",
+        "description" : "The longitude of the location where the incident occurred. This location is shifted from the actual location for partial redaction but falls on the same block.",
+        "fieldName" : "longitude",
+        "position" : 21,
+        "renderTypeName" : "number",
+        "tableColumnId" : 1514310,
+        "width" : 133,
+        "cachedContents" : {
+          "largest" : "-87.524529378",
+          "non_null" : 6129312,
+          "average" : "-87.67196404383461",
+          "null" : 69705,
+          "top" : [ {
+            "item" : "-87.765762835",
+            "count" : 20
+          }, {
+            "item" : "-87.599745249",
+            "count" : 19
+          }, {
+            "item" : "-87.72706177",
+            "count" : 18
+          }, {
+            "item" : "-87.657030787",
+            "count" : 17
+          }, {
+            "item" : "-87.616762494",
+            "count" : 16
+          }, {
+            "item" : "-87.742623385",
+            "count" : 15
+          }, {
+            "item" : "-87.647759117",
+            "count" : 14
+          }, {
+            "item" : "-87.631072891",
+            "count" : 13
+          }, {
+            "item" : "-87.674188619",
+            "count" : 12
+          }, {
+            "item" : "-87.682240995",
+            "count" : 11
+          }, {
+            "item" : "-87.712976948",
+            "count" : 10
+          }, {
+            "item" : "-87.61368999",
+            "count" : 9
+          }, {
+            "item" : "-87.681941224",
+            "count" : 8
+          }, {
+            "item" : "-87.560771495",
+            "count" : 7
+          }, {
+            "item" : "-87.640198387",
+            "count" : 6
+          }, {
+            "item" : "-87.653957017",
+            "count" : 5
+          } ],
+          "smallest" : "-91.686565684",
+          "sum" : "-537368821.277443981"
+        },
+        "format" : {
+          "precisionStyle" : "standard",
+          "noCommas" : "false",
+          "align" : "right"
+        }
+      }, {
+        "id" : 258138745,
+        "name" : "Location",
+        "dataTypeName" : "location",
+        "description" : "The location where the incident occurred in a format that allows for creation of maps and other geographic operations on this data portal. This location is shifted from the actual location for partial redaction but falls on the same block.",
+        "fieldName" : "location",
+        "position" : 22,
+        "renderTypeName" : "location",
+        "tableColumnId" : 1514311,
+        "width" : 196,
+        "cachedContents" : {
+          "largest" : {
+            "latitude" : "41.998129171",
+            "human_address" : "{\"address\":\"\",\"city\":\"\",\"state\":\"\",\"zip\":\"\"}",
+            "longitude" : "-87.666038464"
+          },
+          "non_null" : 6129312,
+          "null" : 69705,
+          "top" : [ {
+            "item" : {
+              "latitude" : "41.905175582",
+              "human_address" : "{\"address\":\"\",\"city\":\"\",\"state\":\"\",\"zip\":\"\"}",
+              "longitude" : "-87.765762835"
+            },
+            "count" : 20
+          }, {
+            "item" : {
+              "latitude" : "41.775998479",
+              "human_address" : "{\"address\":\"\",\"city\":\"\",\"state\":\"\",\"zip\":\"\"}",
+              "longitude" : "-87.599745249"
+            },
+            "count" : 19
+          }, {
+            "item" : {
+              "latitude" : "41.909876235",
+              "human_address" : "{\"address\":\"\",\"city\":\"\",\"state\":\"\",\"zip\":\"\"}",
+              "longitude" : "-87.72706177"
+            },
+            "count" : 18
+          }, {
+            "item" : {
+              "latitude" : "41.753114009",
+              "human_address" : "{\"address\":\"\",\"city\":\"\",\"state\":\"\",\"zip\":\"\"}",
+              "longitude" : "-87.657030787"
+            },
+            "count" : 17
+          }, {
+            "item" : {
+              "latitude" : "41.825135181",
+              "human_address" : "{\"address\":\"\",\"city\":\"\",\"state\":\"\",\"zip\":\"\"}",
+              "longitude" : "-87.616762494"
+            },
+            "count" : 16
+          }, {
+            "item" : {
+              "latitude" : "41.926277288",
+              "human_address" : "{\"address\":\"\",\"city\":\"\",\"state\":\"\",\"zip\":\"\"}",
+              "longitude" : "-87.742623385"
+            },
+            "count" : 15
+          }, {
+            "item" : {
+              "latitude" : "41.87794002",
+              "human_address" : "{\"address\":\"\",\"city\":\"\",\"state\":\"\",\"zip\":\"\"}",
+              "longitude" : "-87.647759117"
+            },
+            "count" : 14
+          }, {
+            "item" : {
+              "latitude" : "41.889751946",
+              "human_address" : "{\"address\":\"\",\"city\":\"\",\"state\":\"\",\"zip\":\"\"}",
+              "longitude" : "-87.631072891"
+            },
+            "count" : 13
+          }, {
+            "item" : {
+              "latitude" : "41.91235932",
+              "human_address" : "{\"address\":\"\",\"city\":\"\",\"state\":\"\",\"zip\":\"\"}",
+              "longitude" : "-87.674188619"
+            },
+            "count" : 12
+          }, {
+            "item" : {
+              "latitude" : "41.846974193",
+              "human_address" : "{\"address\":\"\",\"city\":\"\",\"state\":\"\",\"zip\":\"\"}",
+              "longitude" : "-87.682240995"
+            },
+            "count" : 11
+          }, {
+            "item" : {
+              "latitude" : "41.906406388",
+              "human_address" : "{\"address\":\"\",\"city\":\"\",\"state\":\"\",\"zip\":\"\"}",
+              "longitude" : "-87.712976948"
+            },
+            "count" : 10
+          }, {
+            "item" : {
+              "latitude" : "41.750196978",
+              "human_address" : "{\"address\":\"\",\"city\":\"\",\"state\":\"\",\"zip\":\"\"}",
+              "longitude" : "-87.61368999"
+            },
+            "count" : 9
+          }, {
+            "item" : {
+              "latitude" : "41.87760112",
+              "human_address" : "{\"address\":\"\",\"city\":\"\",\"state\":\"\",\"zip\":\"\"}",
+              "longitude" : "-87.681941224"
+            },
+            "count" : 8
+          }, {
+            "item" : {
+              "latitude" : "41.700104464",
+              "human_address" : "{\"address\":\"\",\"city\":\"\",\"state\":\"\",\"zip\":\"\"}",
+              "longitude" : "-87.560771495"
+            },
+            "count" : 7
+          }, {
+            "item" : {
+              "latitude" : "41.906489594",
+              "human_address" : "{\"address\":\"\",\"city\":\"\",\"state\":\"\",\"zip\":\"\"}",
+              "longitude" : "-87.640198387"
+            },
+            "count" : 6
+          }, {
+            "item" : {
+              "latitude" : "41.7905363",
+              "human_address" : "{\"address\":\"\",\"city\":\"\",\"state\":\"\",\"zip\":\"\"}",
+              "longitude" : "-87.653957017"
+            },
+            "count" : 5
+          } ],
+          "smallest" : {
+            "latitude" : "41.998129171",
+            "human_address" : "{\"address\":\"\",\"city\":\"\",\"state\":\"\",\"zip\":\"\"}",
+            "longitude" : "-87.666038464"
+          }
+        },
+        "format" : {
+          "view" : "coords",
+          "align" : "left"
+        },
+        "subColumnTypes" : [ "human_address", "latitude", "longitude", "machine_address", "needs_recoding" ]
+      } ],
+      "grants" : [ {
+        "inherited" : false,
+        "type" : "viewer",
+        "flags" : [ "public" ]
+      } ],
+      "metadata" : {
+        "custom_fields" : {
+          "Metadata" : {
+            "Time Period" : "2001 to present, minus the most recent seven days",
+            "Data Owner" : "Police",
+            "Frequency" : "Data are updated daily."
+          }
+        },
+        "renderTypeConfig" : {
+          "visible" : {
+            "table" : true
+          }
+        },
+        "rowLabel" : "Reported Crime",
+        "availableDisplayTypes" : [ "table", "fatrow", "page" ],
+        "jsonQuery" : {
+          "order" : [ {
+            "ascending" : false,
+            "columnFieldName" : "date"
+          } ]
+        },
+        "rdfSubject" : "0",
+        "rowIdentifier" : 258138724
+      },
+      "owner" : {
+        "id" : "scy9-9wg4",
+        "displayName" : "cocadmin",
+        "privilegesDisabled" : false,
+        "profileImageUrlLarge" : "/api/users/scy9-9wg4/profile_images/LARGE",
+        "profileImageUrlMedium" : "/api/users/scy9-9wg4/profile_images/THUMB",
+        "profileImageUrlSmall" : "/api/users/scy9-9wg4/profile_images/TINY",
+        "roleName" : "administrator",
+        "screenName" : "cocadmin",
+        "rights" : [ "create_datasets", "edit_others_datasets", "edit_sdp", "edit_site_theme", "moderate_comments", "manage_users", "chown_datasets", "edit_nominations", "approve_nominations", "feature_items", "federations", "manage_stories", "manage_approval", "change_configurations", "view_domain", "view_others_datasets", "edit_pages", "create_pages", "view_goals", "view_dashboards", "edit_goals", "edit_dashboards", "create_dashboards", "manage_provenance", "create_story", "edit_story_title_desc", "create_story_copy", "delete_story", "manage_story_collaborators", "manage_story_visibility", "manage_story_public_version", "edit_story", "view_unpublished_story", "view_story", "view_all_dataset_status_logs", "use_data_connectors" ]
+      },
+      "query" : {
+        "orderBys" : [ {
+          "ascending" : false,
+          "expression" : {
+            "columnId" : 258138726,
+            "type" : "column"
+          }
+        } ]
+      },
+      "rights" : [ "read" ],
+      "sortBys" : [ {
+        "id" : 0,
+        "viewColumnId" : 258138726
+      } ],
+      "tableAuthor" : {
+        "id" : "scy9-9wg4",
+        "displayName" : "cocadmin",
+        "privilegesDisabled" : false,
+        "profileImageUrlLarge" : "/api/users/scy9-9wg4/profile_images/LARGE",
+        "profileImageUrlMedium" : "/api/users/scy9-9wg4/profile_images/THUMB",
+        "profileImageUrlSmall" : "/api/users/scy9-9wg4/profile_images/TINY",
+        "roleName" : "administrator",
+        "screenName" : "cocadmin",
+        "rights" : [ "create_datasets", "edit_others_datasets", "edit_sdp", "edit_site_theme", "moderate_comments", "manage_users", "chown_datasets", "edit_nominations", "approve_nominations", "feature_items", "federations", "manage_stories", "manage_approval", "change_configurations", "view_domain", "view_others_datasets", "edit_pages", "create_pages", "view_goals", "view_dashboards", "edit_goals", "edit_dashboards", "create_dashboards", "manage_provenance", "create_story", "edit_story_title_desc", "create_story_copy", "delete_story", "manage_story_collaborators", "manage_story_visibility", "manage_story_public_version", "edit_story", "view_unpublished_story", "view_story", "view_all_dataset_status_logs", "use_data_connectors" ]
+      },
+      "tags" : [ "crime", "police" ],
+      "flags" : [ "default", "restorable", "restorePossibleForType" ]
+    }
+  },
+  "data" : [ [ 7793532, "1CB7EE75-3AED-43CE-AE7C-50B3E36FDFC2", 7793532, 1454522083, "386824", 1460782993, "878752", null, "2628666", "HJ216589", "2003-03-03T19:50:00", "007XX E 71ST ST", "2027", "NARCOTICS", "POSS: CRACK", "STREET", true, false, "0322", "003", "6", "69", "18", "1182147", "1858096", "2003", "2016-04-15T08:55:02", "41.765836163", "-87.607925262", [ "{\"address\":\"\",\"city\":\"\",\"state\":\"\",\"zip\":\"\"}", "41.765836163", "-87.607925262", null, false ] ]
+, [ 7793533, "96559761-1495-4C7D-85D1-C049EB6AB187", 7793533, 1454522083, "386824", 1460782993, "878752", null, "2628667", "HJ228608", "2003-03-07T14:10:00", "052XX W PALMER ST", "0560", "ASSAULT", "SIMPLE", "SCHOOL, PUBLIC, BUILDING", false, false, "2515", "025", "37", "19", "08A", "1140886", "1914122", "2003", "2016-04-15T08:55:02", "41.920434991", "-87.757786441", [ "{\"address\":\"\",\"city\":\"\",\"state\":\"\",\"zip\":\"\"}", "41.920434991", "-87.757786441", null, false ] ]
+, [ 7793534, "B98D1E46-6EEC-4A1B-94E8-609733181431", 7793534, 1454522083, "386824", 1460782993, "878752", null, "2628669", "HJ234055", "2003-03-12T20:13:58", "015XX S HOMAN AVE", "0460", "BATTERY", "SIMPLE", "SIDEWALK", false, false, "1021", "010", "24", "29", "08B", "1153952", "1892173", "2003", "2016-04-15T08:55:02", "41.859954107", "-87.710364565", [ "{\"address\":\"\",\"city\":\"\",\"state\":\"\",\"zip\":\"\"}", "41.859954107", "-87.710364565", null, false ] ]
+, [ 7793535, "8C3C3159-CFB5-4D75-849F-70A895396C19", 7793535, 1454522083, "386824", 1460782993, "878752", null, "2628670", "HJ235289", "2003-03-12T08:00:00", "025XX N BURLING ST", "0910", "MOTOR VEHICLE THEFT", "AUTOMOBILE", "STREET", false, false, "1933", "019", "43", "7", "07", "1170842", "1917187", "2003", "2016-04-15T08:55:02", "41.928241058", "-87.647632378", [ "{\"address\":\"\",\"city\":\"\",\"state\":\"\",\"zip\":\"\"}", "41.928241058", "-87.647632378", null, false ] ]
+, [ 7793536, "F654FC2F-7941-4506-A99D-A7B109779BEB", 7793536, 1454522083, "386824", 1460782993, "878752", null, "2628671", "HJ205785", "2003-02-26T10:26:11", "022XX S STATE ST", "2110", "NARCOTICS", "POS: HYPODERMIC NEEDLE", "CHA APARTMENT", true, false, "0134", "001", "3", "33", "18", "1176664", "1889529", "2003", "2016-04-15T08:55:02", "41.852216317", "-87.627075368", [ "{\"address\":\"\",\"city\":\"\",\"state\":\"\",\"zip\":\"\"}", "41.852216317", "-87.627075368", null, false ] ]
+, [ 7793537, "4720BE31-E907-4496-B0ED-3758CC4B62E9", 7793537, 1454522083, "386824", 1460782993, "878752", null, "2628672", "HJ234446", "2003-03-13T01:25:39", "036XX S FEDERAL ST", "0486", "BATTERY", "DOMESTIC BATTERY SIMPLE", "STREET", false, true, "0211", "002", "3", "35", "08B", "1176227", "1880781", "2003", "2016-04-15T08:55:02", "41.828220982", "-87.628942582", [ "{\"address\":\"\",\"city\":\"\",\"state\":\"\",\"zip\":\"\"}", "41.828220982", "-87.628942582", null, false ] ]
+, [ 7793538, "AF1A8AF9-A142-4932-B0D7-0093881D4D7A", 7793538, 1454522083, "386824", 1460782993, "878752", null, "2628673", "HJ215822", "2003-03-03T12:50:00", "118XX S PERRY AVE", "2094", "NARCOTICS", "ATTEMPT POSSESSION CANNABIS", "STREET", true, false, "0522", "005", "34", "53", "18", "1177706", "1826493", "2003", "2016-04-15T08:55:02", "41.679215014", "-87.625155802", [ "{\"address\":\"\",\"city\":\"\",\"state\":\"\",\"zip\":\"\"}", "41.679215014", "-87.625155802", null, false ] ]
+, [ 7793539, "CF9AEC3F-ADB1-4FD4-B524-B2D92752E863", 7793539, 1454522083, "386824", 1460782993, "878752", null, "2628675", "HJ235325", "2003-03-13T12:00:00", "026XX W 51ST ST", "2820", "OTHER OFFENSE", "TELEPHONE THREAT", "COMMERCIAL / BUSINESS OFFICE", false, true, "0911", "009", "14", "63", "26", "1159461", "1870746", "2003", "2016-04-15T08:55:02", "41.801044453", "-87.690730816", [ "{\"address\":\"\",\"city\":\"\",\"state\":\"\",\"zip\":\"\"}", "41.801044453", "-87.690730816", null, false ] ]
+, [ 7793540, "AC1F5BE6-1FE4-4DE7-AE33-B87B43065719", 7793540, 1454522083, "386824", 1460782993, "878752", null, "2628676", "HJ233646", "2003-03-12T16:40:00", "037XX S UNION AVE", "0460", "BATTERY", "SIMPLE", "STREET", false, false, "0925", "009", "11", "60", "08B", "1172247", "1880187", "2003", "2016-04-15T08:55:02", "41.826679611", "-87.643562231", [ "{\"address\":\"\",\"city\":\"\",\"state\":\"\",\"zip\":\"\"}", "41.826679611", "-87.643562231", null, false ] ]
+, [ 7793541, "003E0007-70C0-4334-993F-471CFA34D71D", 7793541, 1454522083, "386824", 1460782993, "878752", null, "2628677", "HJ215416", "2003-03-03T10:30:00", "118XX S PERRY AVE", "2094", "NARCOTICS", "ATTEMPT POSSESSION CANNABIS", "STREET", true, false, "0522", "005", "34", "53", "18", "1177706", "1826493", "2003", "2016-04-15T08:55:02", "41.679215014", "-87.625155802", [ "{\"address\":\"\",\"city\":\"\",\"state\":\"\",\"zip\":\"\"}", "41.679215014", "-87.625155802", null, false ] ]
+, [ 7793542, "7F335101-FBFD-4BF8-A460-F968806F4807", 7793542, 1454522083, "386824", 1460782993, "878752", null, "2628678", "HJ235341", "2003-03-11T10:00:00", "056XX W GOODMAN ST", "1310", "CRIMINAL DAMAGE", "TO PROPERTY", "RESIDENCE-GARAGE", false, false, "1623", "016", "45", "11", "14", "1138217", "1932650", "2003", "2016-04-15T08:55:02", "41.971326413", "-87.767143327", [ "{\"address\":\"\",\"city\":\"\",\"state\":\"\",\"zip\":\"\"}", "41.971326413", "-87.767143327", null, false ] ]
+, [ 7793543, "51F941CF-3B27-4844-81D3-3CB6D9D6F85B", 7793543, 1454522083, "386824", 1460782993, "878752", null, "2628680", "HJ208255", "2003-02-26T20:40:00", "055XX S EVERETT AVE", "2024", "NARCOTICS", "POSS: HEROIN(WHITE)", "STREET", true, false, "2132", "002", "5", "41", "18", "1188986", "1868626", "2003", "2016-04-15T08:55:02", "41.794570294", "-87.582521379", [ "{\"address\":\"\",\"city\":\"\",\"state\":\"\",\"zip\":\"\"}", "41.794570294", "-87.582521379", null, false ] ]
+, [ 7793544, "98CA4B9F-CD7A-45E5-AEE0-DD562EC63957", 7793544, 1454522083, "386824", 1460782993, "878752", null, "2628681", "HJ233721", "2003-03-12T17:25:26", "015XX W 43RD ST", "1330", "CRIMINAL TRESPASS", "TO LAND", "FACTORY/MANUFACTURING BUILDING", true, false, "0921", "009", "11", "61", "26", "1166597", "1876208", "2003", "2016-04-15T08:55:02", "41.815883421", "-87.664404653", [ "{\"address\":\"\",\"city\":\"\",\"state\":\"\",\"zip\":\"\"}", "41.815883421", "-87.664404653", null, false ] ]
+, [ 7793545, "00F22474-82D0-4902-961B-E7BF4C0FCB35", 7793545, 1454522083, "386824", 1460782993, "878752", null, "2628683", "HJ229240", "2003-03-10T14:30:00", "031XX N MAJOR AVE", "1330", "CRIMINAL TRESPASS", "TO LAND", "RESIDENCE", true, false, "2514", "025", "30", "19", "26", "1137824", "1920297", "2003", "2016-04-15T08:55:02", "41.937435705", "-87.768887632", [ "{\"address\":\"\",\"city\":\"\",\"state\":\"\",\"zip\":\"\"}", "41.937435705", "-87.768887632", null, false ] ]
+, [ 7793546, "EEA4288B-183A-40AE-AC47-F2690596AACC", 7793546, 1454522083, "386824", 1460782993, "878752", null, "2628684", "HJ235312", "2002-12-20T11:30:00", "025XX N MASON AVE", "1205", "DECEPTIVE PRACTICE", "THEFT BY LESSEE,NON-VEH", "RESIDENCE", false, false, "2515", "025", "29", "19", "11", "1136297", "1916330", "2002", "2016-04-15T08:55:02", "41.926577272", "-87.77459472", [ "{\"address\":\"\",\"city\":\"\",\"state\":\"\",\"zip\":\"\"}", "41.926577272", "-87.77459472", null, false ] ]
+, [ 7793547, "166B1B00-B024-42ED-8F55-69D8485B56E7", 7793547, 1454522083, "386824", 1460782993, "878752", null, "2628685", "HJ233654", "2003-03-12T16:59:37", "025XX W 54TH ST", "0560", "ASSAULT", "SIMPLE", "STREET", false, false, "0911", "009", "14", "63", "08A", "1160528", "1868621", "2003", "2016-04-15T08:55:02", "41.79519122", "-87.686876342", [ "{\"address\":\"\",\"city\":\"\",\"state\":\"\",\"zip\":\"\"}", "41.79519122", "-87.686876342", null, false ] ]
+, [ 7793548, "6A201427-29C9-4E8B-886B-271E98FA5929", 7793548, 1454522083, "386824", 1460782993, "878752", null, "2628686", "HJ205786", "2003-02-26T10:15:00", "041XX S CALIFORNIA AVE", "1811", "NARCOTICS", "POSS: CANNABIS 30GMS OR LESS", "SCHOOL, PUBLIC, BUILDING", true, false, "0912", "009", "14", "58", "18", "1158379", "1877130", "2003", "2016-04-15T08:55:02", "41.818585099", "-87.694524884", [ "{\"address\":\"\",\"city\":\"\",\"state\":\"\",\"zip\":\"\"}", "41.818585099", "-87.694524884", null, false ] ]
+, [ 7793549, "5C5C679F-494A-45B0-A876-7D1595EAC068", 7793549, 1454522083, "386824", 1460782993, "878752", null, "2628687", "HJ233920", "2003-03-12T17:45:00", "002XX W PERSHING RD", "0486", "BATTERY", "DOMESTIC BATTERY SIMPLE", "STREET", false, false, "0925", "009", "3", "34", "08B", "1175200", "1879100", "2003", "2016-04-15T08:55:02", "41.823631219", "-87.632760809", [ "{\"address\":\"\",\"city\":\"\",\"state\":\"\",\"zip\":\"\"}", "41.823631219", "-87.632760809", null, false ] ]
+, [ 7793550, "078E3737-CF06-44CC-99EF-803F9D5D1F90", 7793550, 1454522083, "386824", 1460782993, "878752", null, "2628688", "HJ211178", "2003-02-28T21:55:00", "102XX S MAPLEWOOD AVE", "2230", "LIQUOR LAW VIOLATION", "ILLEGAL CONSUMPTION BY MINOR", "PARK PROPERTY", true, false, "2211", "022", "19", "72", "22", "1161186", "1836504", "2003", "2016-04-15T08:55:02", "41.7070437", "-87.685350418", [ "{\"address\":\"\",\"city\":\"\",\"state\":\"\",\"zip\":\"\"}", "41.7070437", "-87.685350418", null, false ] ]
+, [ 7793551, "E7F75A8F-6894-4352-A1D0-684CF64ADB8E", 7793551, 1454522083, "386824", 1460782993, "878752", null, "2628689", "HJ234133", "2003-03-12T21:00:00", "043XX S WASHTENAW AVE", "0486", "BATTERY", "DOMESTIC BATTERY SIMPLE", "APARTMENT", false, false, "0912", "009", "12", "58", "08B", "1159090", "1875755", "2003", "2016-04-15T08:55:02", "41.814797394", "-87.691954321", [ "{\"address\":\"\",\"city\":\"\",\"state\":\"\",\"zip\":\"\"}", "41.814797394", "-87.691954321", null, false ] ]
+, [ 7793552, "D2A6B63C-74F6-46D7-81E4-2D3D9CD00BBC", 7793552, 1454522083, "386824", 1460782993, "878752", null, "2628691", "HJ234240", "2003-03-12T01:00:00", "004XX W 27TH ST", "0486", "BATTERY", "DOMESTIC BATTERY SIMPLE", "APARTMENT", false, false, "0923", "009", "11", "60", "08B", "1173491", "1886697", "2003", "2016-04-15T08:55:02", "41.844516108", "-87.638805135", [ "{\"address\":\"\",\"city\":\"\",\"state\":\"\",\"zip\":\"\"}", "41.844516108", "-87.638805135", null, false ] ]
+, [ 7793660, "0B1909A0-4FA7-46BF-B601-1F36F8298588", 7793660, 1454522083, "386824", 1460782993, "878752", null, "2628817", "HJ235648", "2003-03-13T00:00:00", "011XX W 62ND ST", "0820", "THEFT", "$500 AND UNDER", "STREET", false, false, "0712", "007", "16", "68", "06", "1169860", "1863686", "2003", "2016-04-15T08:55:02", "41.781451339", "-87.652798997", [ "{\"address\":\"\",\"city\":\"\",\"state\":\"\",\"zip\":\"\"}", "41.781451339", "-87.652798997", null, false ] ]
+, [ 7793553, "FCEF14AF-C52E-492A-BB2A-377BD2BBF8BD", 7793553, 1454522083, "386824", 1460782993, "878752", null, "2628692", "HJ208431", "2003-02-27T14:20:00", "029XX N AUSTIN AVE", "1811", "NARCOTICS", "POSS: CANNABIS 30GMS OR LESS", "SCHOOL, PUBLIC, BUILDING", true, false, "2514", "025", "30", "19", "18", "1135882", "1918957", "2003", "2016-04-15T08:55:02", "41.933793464", "-87.776056941", [ "{\"address\":\"\",\"city\":\"\",\"state\":\"\",\"zip\":\"\"}", "41.933793464", "-87.776056941", null, false ] ]
+, [ 7793554, "67875587-89E8-493C-8848-0637B62F8B69", 7793554, 1454522083, "386824", 1460782993, "878752", null, "2628694", "HJ206116", "2003-02-26T13:05:00", "075XX S CONSTANCE AVE", "1811", "NARCOTICS", "POSS: CANNABIS 30GMS OR LESS", "SCHOOL, PUBLIC, BUILDING", true, false, "0414", "004", "8", "43", "18", "1189845", "1855351", "2003", "2016-04-15T08:55:02", "41.758122033", "-87.579798041", [ "{\"address\":\"\",\"city\":\"\",\"state\":\"\",\"zip\":\"\"}", "41.758122033", "-87.579798041", null, false ] ]
+, [ 7793555, "24B3BCD5-D5E1-4540-B27F-66C27C06D086", 7793555, 1454522083, "386824", 1460782993, "878752", null, "2628695", "HJ234504", "2003-03-13T02:47:00", "029XX S BONAPARTE ST", "1320", "CRIMINAL DAMAGE", "TO VEHICLE", "STREET", false, false, "0923", "009", "11", "60", "14", "1167938", "1885028", "2003", "2016-04-15T08:55:02", "41.840057637", "-87.65923174", [ "{\"address\":\"\",\"city\":\"\",\"state\":\"\",\"zip\":\"\"}", "41.840057637", "-87.65923174", null, false ] ]
+, [ 7793556, "975A7329-87E9-4A83-B38B-056394799233", 7793556, 1454522083, "386824", 1460782993, "878752", null, "2628696", "HJ215468", "2003-03-03T11:00:00", "115XX S PERRY AVE", "2092", "NARCOTICS", "SOLICIT NARCOTICS ON PUBLICWAY", "STREET", true, false, "0522", "005", "34", "53", "26", "1177645", "1828454", "2003", "2016-04-15T08:55:02", "41.68459767", "-87.625320098", [ "{\"address\":\"\",\"city\":\"\",\"state\":\"\",\"zip\":\"\"}", "41.68459767", "-87.625320098", null, false ] ]
+, [ 7793557, "BE212D63-CCCE-4755-8AF2-E844749D7085", 7793557, 1454522083, "386824", 1460782993, "878752", null, "2628697", "HJ208640", "2003-02-27T17:30:00", "063XX N SACRAMENTO AVE", "2093", "NARCOTICS", "FOUND SUSPECT NARCOTICS", "RESIDENCE", true, false, "2413", "024", "50", "2", "26", "1155195", "1941951", "2003", "2016-04-15T08:55:02", "41.996523955", "-87.704461676", [ "{\"address\":\"\",\"city\":\"\",\"state\":\"\",\"zip\":\"\"}", "41.996523955", "-87.704461676", null, false ] ]
+, [ 7793558, "CB378F92-624C-4EDB-A76D-5DDCF428C7CE", 7793558, 1454522083, "386824", 1460782993, "878752", null, "2628698", "HJ234539", "2003-03-13T04:18:00", "050XX S ABERDEEN ST", "0486", "BATTERY", "DOMESTIC BATTERY SIMPLE", "RESIDENCE", false, true, "0921", "009", "16", "61", "08B", "1169836", "1871436", "2003", "2016-04-15T08:55:02", "41.802718744", "-87.652662023", [ "{\"address\":\"\",\"city\":\"\",\"state\":\"\",\"zip\":\"\"}", "41.802718744", "-87.652662023", null, false ] ]
+, [ 7793559, "E247F666-15F0-4B49-B980-2DE8E5243321", 7793559, 1454522083, "386824", 1460782993, "878752", null, "2628699", "HJ235365", "2003-03-12T18:00:00", "009XX E HYDE PARK BLVD", "0820", "THEFT", "$500 AND UNDER", "STREET", false, false, "2124", "002", "4", "39", "06", "1183560", "1871398", "2003", "2016-04-15T08:55:02", "41.802305207", "-87.60233169", [ "{\"address\":\"\",\"city\":\"\",\"state\":\"\",\"zip\":\"\"}", "41.802305207", "-87.60233169", null, false ] ]
+, [ 7793560, "D1B0ABEF-0C18-493E-96A2-34659BAAB112", 7793560, 1454522083, "386824", 1460782993, "878752", null, "2628700", "HJ211529", "2003-03-01T03:15:00", "050XX W MADISON ST", "2250", "LIQUOR LAW VIOLATION", "LIQUOR LICENSE VIOLATION", "OTHER", true, false, "1533", "015", "28", "25", "22", "1142755", "1899553", "2003", "2016-04-15T08:55:02", "41.880421366", "-87.751282465", [ "{\"address\":\"\",\"city\":\"\",\"state\":\"\",\"zip\":\"\"}", "41.880421366", "-87.751282465", null, false ] ]
+, [ 7793561, "77476F59-710B-47EF-8B5A-4B8EDC70B189", 7793561, 1454522083, "386824", 1460782993, "878752", null, "2628701", "HJ206372", "2003-02-26T15:51:35", "002XX S LOTUS AVE", "2027", "NARCOTICS", "POSS: CRACK", "GROCERY FOOD STORE", true, false, "1522", "015", "29", "25", "18", "1139913", "1898658", "2003", "2016-04-15T08:55:02", "41.878017787", "-87.761740038", [ "{\"address\":\"\",\"city\":\"\",\"state\":\"\",\"zip\":\"\"}", "41.878017787", "-87.761740038", null, false ] ]
+, [ 7793562, "CB0F8804-DF11-4719-BDD6-E698A32F73FC", 7793562, 1454522083, "386824", 1460782993, "878752", null, "2628702", "HJ233589", "2003-03-12T15:30:00", "016XX N KEELER AVE", "0530", "ASSAULT", "AGGRAVATED: OTHER DANG WEAPON", "STREET", true, false, "2534", "025", "30", "23", "04A", "1148140", "1910470", "2003", "2016-04-15T08:55:02", "41.91027686", "-87.731227769", [ "{\"address\":\"\",\"city\":\"\",\"state\":\"\",\"zip\":\"\"}", "41.91027686", "-87.731227769", null, false ] ]
+, [ 7793563, "70A08EF5-4B7B-41B6-B4EC-56E7FC4F901A", 7793563, 1454522083, "386824", 1460782993, "878752", null, "2628703", "HJ233772", "2003-03-12T16:41:53", "011XX S JEFFERSON ST", "1330", "CRIMINAL TRESPASS", "TO LAND", "GAS STATION", true, false, "0131", "001", "2", "28", "26", "1172488", "1895410", "2003", "2016-04-15T08:55:02", "41.868447451", "-87.642228591", [ "{\"address\":\"\",\"city\":\"\",\"state\":\"\",\"zip\":\"\"}", "41.868447451", "-87.642228591", null, false ] ]
+, [ 7793564, "5F5BF773-2790-4A3D-B426-6E52B315630B", 7793564, 1454522083, "386824", 1460782993, "878752", null, "2628704", "HJ208642", "2003-02-27T16:55:00", "019XX N TRIPP AVE", "1822", "NARCOTICS", "MANU/DEL:CANNABIS OVER 10 GMS", "PARKING LOT/GARAGE(NON.RESID.)", true, false, "2534", "025", "30", "20", "18", "1147743", "1912634", "2003", "2016-04-15T08:55:02", "41.916222728", "-87.732630528", [ "{\"address\":\"\",\"city\":\"\",\"state\":\"\",\"zip\":\"\"}", "41.916222728", "-87.732630528", null, false ] ]
+, [ 7793565, "847D2257-297C-4D61-AC3D-5FC3F1DD5975", 7793565, 1454522083, "386824", 1460782993, "878752", null, "2628705", "HJ233296", "2003-03-12T14:13:47", "016XX S AVERS AVE", "0460", "BATTERY", "SIMPLE", "SCHOOL, PUBLIC, GROUNDS", false, false, "1014", "010", "24", "29", "08B", "1151008", "1891566", "2003", "2016-04-15T08:55:02", "41.858346536", "-87.721187148", [ "{\"address\":\"\",\"city\":\"\",\"state\":\"\",\"zip\":\"\"}", "41.858346536", "-87.721187148", null, false ] ]
+, [ 7793566, "1992331B-41D1-4A2B-9FBB-EB0C51EB39B9", 7793566, 1454522083, "386824", 1460782993, "878752", null, "2628706", "HJ215523", "2003-03-03T11:27:00", "005XX E MARQUETTE RD", "1811", "NARCOTICS", "POSS: CANNABIS 30GMS OR LESS", "SIDEWALK", true, false, "0321", "003", "20", "42", "18", "1181124", "1861375", "2003", "2016-04-15T08:55:02", "41.774857681", "-87.611574008", [ "{\"address\":\"\",\"city\":\"\",\"state\":\"\",\"zip\":\"\"}", "41.774857681", "-87.611574008", null, false ] ]
+, [ 7793567, "08804C62-3435-4629-98F7-BBD2C2D21B8C", 7793567, 1454522083, "386824", 1460782993, "878752", null, "2628707", "HJ212623", "2003-03-01T17:25:00", "059XX W RACE AVE", "2092", "NARCOTICS", "SOLICIT NARCOTICS ON PUBLICWAY", "STREET", true, false, "1512", "015", "29", "25", "26", "1136862", "1903018", "2003", "2016-04-15T08:55:02", "41.890037416", "-87.772838203", [ "{\"address\":\"\",\"city\":\"\",\"state\":\"\",\"zip\":\"\"}", "41.890037416", "-87.772838203", null, false ] ]
+, [ 7793568, "9256727F-F880-4876-B120-9C86D70BB180", 7793568, 1454522083, "386824", 1460782993, "878752", null, "2628708", "HJ206477", "2003-02-26T16:09:19", "023XX S STATE ST", "2024", "NARCOTICS", "POSS: HEROIN(WHITE)", "CHA HALLWAY/STAIRWELL/ELEVATOR", true, false, "0134", "001", "3", "33", "18", "1176683", "1888842", "2003", "2016-04-15T08:55:02", "41.850330711", "-87.627026373", [ "{\"address\":\"\",\"city\":\"\",\"state\":\"\",\"zip\":\"\"}", "41.850330711", "-87.627026373", null, false ] ]
+, [ 7793569, "875F5C83-D1BC-4C8A-A9F8-6D18E746F2F2", 7793569, 1454522083, "386824", 1460782993, "878752", null, "2628710", "HJ233665", "2003-03-12T00:01:00", "027XX N LAWNDALE AVE", "1310", "CRIMINAL DAMAGE", "TO PROPERTY", "RESIDENCE", false, false, "2524", "025", "35", "22", "14", "1151250", "1917916", "2003", "2016-04-15T08:55:02", "41.930648869", "-87.719606993", [ "{\"address\":\"\",\"city\":\"\",\"state\":\"\",\"zip\":\"\"}", "41.930648869", "-87.719606993", null, false ] ]
+, [ 7793570, "8EB56F93-BDD5-4C58-BA00-D119453E1D22", 7793570, 1454522083, "386824", 1460782993, "878752", null, "2628711", "HJ235391", "2003-03-10T14:30:00", "047XX S HARDING AVE", "2820", "OTHER OFFENSE", "TELEPHONE THREAT", "RESIDENCE", false, false, "0821", "008", "14", "57", "26", "1150829", "1872887", "2003", "2016-04-15T08:55:02", "41.807092394", "-87.722331875", [ "{\"address\":\"\",\"city\":\"\",\"state\":\"\",\"zip\":\"\"}", "41.807092394", "-87.722331875", null, false ] ]
+, [ 7793571, "39E9362C-F708-45D9-9231-9121D0DC5B9A", 7793571, 1454522083, "386824", 1460782993, "878752", null, "2628712", "HJ231270", "2003-03-11T14:45:00", "030XX N MOBILE AVE", "1330", "CRIMINAL TRESPASS", "TO LAND", "SCHOOL, PUBLIC, GROUNDS", true, false, "2511", "025", "36", "19", "26", "1133881", "1919540", "2003", "2016-04-15T08:55:02", "41.935428738", "-87.783396923", [ "{\"address\":\"\",\"city\":\"\",\"state\":\"\",\"zip\":\"\"}", "41.935428738", "-87.783396923", null, false ] ]
+, [ 7793572, "922ED7FD-078B-4757-AA55-6DE3EE669304", 7793572, 1454522083, "386824", 1460782993, "878752", null, "2628713", "HJ235348", "2003-03-12T17:15:00", "005XX W MADISON ST", "0890", "THEFT", "FROM BUILDING", "OTHER", false, false, "0111", "001", "42", "28", "06", "1173039", "1900311", "2003", "2016-04-15T08:55:02", "41.881883933", "-87.640060441", [ "{\"address\":\"\",\"city\":\"\",\"state\":\"\",\"zip\":\"\"}", "41.881883933", "-87.640060441", null, false ] ]
+, [ 7793573, "850C5E14-0944-4AF7-B6BD-E22A142E62BE", 7793573, 1454522083, "386824", 1460782993, "878752", null, "2628714", "HJ208738", "2003-02-27T17:20:00", "049XX W NELSON ST", "1811", "NARCOTICS", "POSS: CANNABIS 30GMS OR LESS", "STREET", true, false, "2521", "025", "31", "19", "18", "1142982", "1919828", "2003", "2016-04-15T08:55:02", "41.936053967", "-87.749942588", [ "{\"address\":\"\",\"city\":\"\",\"state\":\"\",\"zip\":\"\"}", "41.936053967", "-87.749942588", null, false ] ]
+, [ 7793574, "3B4E2627-2862-40F0-862A-C9ECCABAD43B", 7793574, 1454522083, "386824", 1460782993, "878752", null, "2628715", "HJ213248", "2003-03-02T01:00:00", "040XX N SHERIDAN RD", "1506", "PROSTITUTION", "SOLICIT ON PUBLIC WAY", "STREET", true, false, "2322", "019", "46", "3", "16", "1168883", "1926821", "2003", "2016-04-15T08:55:02", "41.954719937", "-87.654550627", [ "{\"address\":\"\",\"city\":\"\",\"state\":\"\",\"zip\":\"\"}", "41.954719937", "-87.654550627", null, false ] ]
+, [ 7793575, "C0A5543B-ADAE-4EB2-B305-2D1FDA884B76", 7793575, 1454522083, "386824", 1460782993, "878752", null, "2628716", "HJ207897", "2003-02-27T11:30:10", "076XX S STONY ISLAND AVE", "2024", "NARCOTICS", "POSS: HEROIN(WHITE)", "PARKING LOT/GARAGE(NON.RESID.)", true, false, "0411", "004", "5", "43", "18", "1188134", "1854823", "2003", "2016-04-15T08:55:02", "41.756714109", "-87.586085395", [ "{\"address\":\"\",\"city\":\"\",\"state\":\"\",\"zip\":\"\"}", "41.756714109", "-87.586085395", null, false ] ]
+, [ 7793576, "1445783D-DE38-4C88-88D1-1863A70D632D", 7793576, 1454522083, "386824", 1460782993, "878752", null, "2628717", "HJ235407", "2002-11-29T00:01:00", "014XX N LAWLER AVE", "1150", "DECEPTIVE PRACTICE", "CREDIT CARD FRAUD", "OTHER", false, false, "2533", "025", "37", "25", "11", "1142440", "1909149", "2002", "2016-04-15T08:55:02", "41.906759778", "-87.752200474", [ "{\"address\":\"\",\"city\":\"\",\"state\":\"\",\"zip\":\"\"}", "41.906759778", "-87.752200474", null, false ] ]
+, [ 7793577, "B7ACBF8D-D19A-405C-932D-D1FF3C02E830", 7793577, 1454522083, "386824", 1460782993, "878752", null, "2628719", "HJ216499", "2003-03-03T19:27:00", "012XX W 18TH ST", "1506", "PROSTITUTION", "SOLICIT ON PUBLIC WAY", "STREET", true, false, "1222", "012", "25", "31", "16", "1168448", "1891549", "2003", "2016-04-15T08:55:02", "41.857940844", "-87.657171844", [ "{\"address\":\"\",\"city\":\"\",\"state\":\"\",\"zip\":\"\"}", "41.857940844", "-87.657171844", null, false ] ]
+, [ 7793578, "5199EBC6-C06E-47DC-A71A-9E780741DF40", 7793578, 1454522083, "386824", 1460782993, "878752", null, "2628720", "HJ208782", "2003-02-27T18:50:00", "015XX N AVERS AVE", "1811", "NARCOTICS", "POSS: CANNABIS 30GMS OR LESS", "SIDEWALK", true, false, "2535", "025", "30", "23", "18", "1150424", "1910004", "2003", "2016-04-15T08:55:02", "41.908953808", "-87.722849361", [ "{\"address\":\"\",\"city\":\"\",\"state\":\"\",\"zip\":\"\"}", "41.908953808", "-87.722849361", null, false ] ]
+, [ 7793579, "D153FBB9-8325-46CF-8A16-81B02D0C7DB3", 7793579, 1454522083, "386824", 1460782993, "878752", null, "2628721", "HJ215537", "2003-03-03T11:20:00", "118XX S PERRY AVE", "2094", "NARCOTICS", "ATTEMPT POSSESSION CANNABIS", "STREET", true, false, "0522", "005", "34", "53", "18", "1177706", "1826493", "2003", "2016-04-15T08:55:02", "41.679215014", "-87.625155802", [ "{\"address\":\"\",\"city\":\"\",\"state\":\"\",\"zip\":\"\"}", "41.679215014", "-87.625155802", null, false ] ]
+, [ 7793580, "A005D5D2-7390-4E97-B0EF-204F9007C5CF", 7793580, 1454522083, "386824", 1460782993, "878752", null, "2628723", "HJ233201", "2003-03-12T13:38:59", "012XX S KARLOV AVE", "0460", "BATTERY", "SIMPLE", "STREET", false, false, "1011", "010", "24", "29", "08B", "1149245", "1894097", "2003", "2016-04-15T08:55:02", "41.865326216", "-87.727592985", [ "{\"address\":\"\",\"city\":\"\",\"state\":\"\",\"zip\":\"\"}", "41.865326216", "-87.727592985", null, false ] ]
+  ]
+}
