@@ -1,6 +1,7 @@
 from mrjob.job import MRJob
 from mrjob.step import MRStep
 
+
 class Exercise2(MRJob):
 
     # In this function, we specify a customized order

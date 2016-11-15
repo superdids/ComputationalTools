@@ -2,7 +2,6 @@ import scipy.sparse as ss
 import pickle
 import time
 
-
 class Dbscan:
 
     """

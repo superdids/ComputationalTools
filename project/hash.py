@@ -1,5 +1,7 @@
 import json
 
+import datetime
+
 fields = dict()
 with open('jsun.json') as f:
     data = json.load(f)
@@ -16,3 +18,9 @@ for crime in data['data']:
     else:
         crimes[crimeType].append(crime)
 
+
+def featureHashingYear(dateString):
+    date_object = datetime.datetime.strptime(dateString, '%Y-%m-%dT%H:%M:%S')
+    year = date_object.year
+    result = year - 2001
+    return result
