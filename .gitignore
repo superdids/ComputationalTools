@@ -3,5 +3,5 @@ GraphDB/
 Databases/MongoDB_exercises/northwind-mongo/
 .DS_Store
 project/scratch_script.py
-project/JSUNBITCHES.json
+project/data.txt
 project/CrimesChicago.json
