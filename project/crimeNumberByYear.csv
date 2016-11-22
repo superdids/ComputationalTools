@@ -1,0 +1,145 @@
+crime,year,number
+narcotics,2004,57060
+narcotics,2005,56234
+narcotics,2006,55813
+narcotics,2007,54454
+narcotics,2008,46507
+narcotics,2009,43543
+narcotics,2010,43393
+narcotics,2011,38606
+narcotics,2012,35486
+narcotics,2013,34144
+narcotics,2014,28951
+narcotics,2015,23823
+narcotics,2016,10657
+prostitution,2001,6026
+prostitution,2002,6408
+prostitution,2003,6214
+prostitution,2004,7476
+prostitution,2005,6124
+prostitution,2006,7034
+prostitution,2007,6087
+prostitution,2008,5141
+prostitution,2009,3940
+prostitution,2010,2485
+prostitution,2011,2424
+prostitution,2012,2203
+prostitution,2013,1652
+prostitution,2014,1625
+prostitution,2015,1322
+prostitution,2016,723
+robbery,2001,18441
+robbery,2002,18522
+robbery,2003,17332
+robbery,2004,15978
+robbery,2005,16047
+robbery,2006,15968
+robbery,2007,15450
+robbery,2008,16703
+robbery,2009,15979
+robbery,2010,14273
+robbery,2011,13982
+robbery,2012,13484
+robbery,2013,11819
+robbery,2014,9798
+robbery,2015,9640
+robbery,2016,9702
+stalking,2001,203
+stalking,2002,200
+stalking,2003,247
+stalking,2004,215
+stalking,2005,192
+stalking,2006,186
+stalking,2007,213
+stalking,2008,190
+stalking,2009,167
+stalking,2010,189
+stalking,2011,181
+stalking,2012,207
+stalking,2013,153
+stalking,2014,140
+stalking,2015,152
+stalking,2016,134
+theft,2001,99264
+theft,2002,98327
+theft,2003,98875
+theft,2004,95463
+theft,2005,85685
+theft,2006,86238
+theft,2007,85155
+theft,2008,88430
+theft,2009,80972
+theft,2010,76750
+theft,2011,75141
+theft,2012,75453
+theft,2013,71522
+theft,2014,61523
+theft,2015,57281
+theft,2016,50905
+assault,2001,31383
+assault,2002,31521
+assault,2003,29477
+assault,2004,28850
+assault,2005,27066
+assault,2006,25945
+assault,2007,26314
+assault,2008,25447
+assault,2009,22861
+assault,2010,21535
+assault,2011,20411
+assault,2012,19898
+assault,2013,17971
+assault,2014,16896
+assault,2015,17041
+assault,2016,16011
+battery,2001,93448
+battery,2002,94152
+battery,2003,88378
+battery,2004,87134
+battery,2005,83964
+battery,2006,80665
+battery,2007,79591
+battery,2008,75921
+battery,2009,68463
+battery,2010,65401
+battery,2011,60459
+battery,2012,59132
+battery,2013,54002
+battery,2014,49443
+battery,2015,48894
+battery,2016,42936
+kidnapping,2001,933
+kidnapping,2002,829
+kidnapping,2003,705
+kidnapping,2004,481
+kidnapping,2005,389
+kidnapping,2006,339
+kidnapping,2007,330
+kidnapping,2008,359
+kidnapping,2009,293
+kidnapping,2010,313
+kidnapping,2011,266
+kidnapping,2012,236
+kidnapping,2013,242
+kidnapping,2014,220
+kidnapping,2015,193
+kidnapping,2016,181
+motor vehicle theft,2001,27549
+motor vehicle theft,2002,25121
+motor vehicle theft,2003,22748
+motor vehicle theft,2004,22805
+motor vehicle theft,2005,22497
+motor vehicle theft,2006,21818
+motor vehicle theft,2007,18573
+motor vehicle theft,2008,18881
+motor vehicle theft,2009,15482
+motor vehicle theft,2010,19028
+motor vehicle theft,2011,19387
+motor vehicle theft,2012,16492
+motor vehicle theft,2013,12581
+motor vehicle theft,2014,9913
+motor vehicle theft,2015,10079
+motor vehicle theft,2016,9285
+narcotics,2001,50567
+narcotics,2002,51789
+narcotics,2003,54288

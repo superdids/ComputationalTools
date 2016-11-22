@@ -1,6 +1,19 @@
 import datetime
+import time
 from mrjob.job import MRJob
 import json
+
+valid_crime_types = {
+    'robbery',
+    'stalking',
+    'prostitution',
+    'narcotics',
+    'motor vehicle theft',
+    'kidnapping',
+    'theft',
+    'assault',
+    'battery'
+}
 
 
 def type_hashing(entry):
@@ -18,7 +31,11 @@ class ReduceData(MRJob):
     # in a text file.
     def mapper(self, _, line):
         lineJSON = json.loads(line)
-        yield (type_hashing(lineJSON), year_hashing(lineJSON)), 1
+        crimeType = type_hashing(lineJSON)
+        crimeYear = year_hashing(lineJSON)
+
+        if crimeType in valid_crime_types:
+            yield (crimeType, crimeYear), 1
 
     # The reduction step now performs the sum function on the values list,
     # and returns a single value as result.
@@ -27,4 +44,11 @@ class ReduceData(MRJob):
 
 
 if __name__ == '__main__':
+    # START the timer
+    start = time.time()
+
     ReduceData.run()
+
+    # END the timer
+    end = time.time()
+    print('processing time: ', end - start)
