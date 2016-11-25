@@ -51,4 +51,4 @@ if __name__ == '__main__':
 
     # END the timer
     end = time.time()
-    print('processing time: ', end - start)
+    # print('processing time: ', end - start)
