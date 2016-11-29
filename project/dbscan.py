@@ -31,7 +31,7 @@ class Dbscan:
     def start(self):
 
         M = 2
-        eps = 0.85
+        eps = 0.005
 
         data_set = []
         with open('positions_test.txt', 'rb') as f:
@@ -121,7 +121,10 @@ class Dbscan:
         for i, _ in enumerate(D):
             for j in range(i, size):
                 distance = self.__compute_distance(self.__point_information[i]['point'],
-                                                   self.__point_information[j]['point']) / 100
+                                                   self.__point_information[j]['point'])
+
+                # if distance < 0.000107 and distance != 0.0:
+                #     print distance
 
                 # If the distance is valid between the two points add i to j's neighborhood and vice versa.
                 if distance <= eps:
@@ -242,7 +245,7 @@ class Dbscan:
 
     @staticmethod
     def __compute_distance(A, B):
-        return math.sqrt(math.pow(A[0] - B[0], 2) + math.pow(A[1] + B[1], 2))
+        return math.sqrt(math.pow(abs(A[0]) - abs(B[0]), 2) + math.pow(abs(A[1]) - abs(B[1]), 2))
 
 
 # Some simple print function to format the results.
@@ -254,6 +257,19 @@ def pretty_print(result):
     print('Total execution time: ', result['initialization_time'] + result['cluster_time'], '\n')
 
 
-instance = Dbscan()
+result_file = open('result_clusters.txt', 'a')
 
-pretty_print(instance.start())
+
+# Save to text file
+def pretty_save(result):
+    result_file.write('Results for positions:')
+    result_file.write(' { clusters: ' + str(result['count']) + ', amount in biggest cluster: ' + str(result['max']) + '}\n')
+    result_file.write('Point initialization time: ' + str(result['initialization_time']) + '\n' +
+                      'Cluster computation time: ' + str(result['cluster_time']) + '\n')
+    result_file.write('Total execution time: ' + str(result['initialization_time']) + str(result['cluster_time']) + '\n')
+
+
+instance = Dbscan()
+clusters_result = instance.start()
+pretty_print(clusters_result)
+pretty_save(clusters_result)
