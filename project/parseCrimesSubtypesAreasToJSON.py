@@ -1,5 +1,9 @@
 import sys
 import json
+import time
+
+# START the timer
+start = time.time()
 
 data = sys.stdin.read().split('\n')
 
@@ -24,3 +28,7 @@ for line in data:
 
 with open('dataCrimesSubtypesAreas.json', 'w') as jsonFile:
     json.dump(distinctCrimes, jsonFile)
+
+# END the timer
+end = time.time()
+print('processing time: ', end - start)
