@@ -25,7 +25,10 @@ def subtype_hashing(entry):
 
 
 def area_hashing(entry):
-    return entry[15].lower()
+    try:
+        return entry[15].lower()
+    except:
+        None
 
 
 class ReduceData(MRJob):
@@ -37,8 +40,9 @@ class ReduceData(MRJob):
         crimeSubtype = subtype_hashing(lineJSON)
         crimeArea = area_hashing(lineJSON)
 
-        if crimeType in valid_crime_types:
-            yield (crimeType, crimeSubtype, crimeArea), 1
+        if crimeType and crimeSubtype and crimeArea:
+            if crimeType in valid_crime_types:
+                yield (crimeType, crimeSubtype, crimeArea), 1
 
     # The reduction step now performs the sum function on the values list,
     # and returns a single value as result.

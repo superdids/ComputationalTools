@@ -3,6 +3,7 @@ GraphDB/
 Databases/MongoDB_exercises/northwind-mongo/
 .DS_Store
 project/scratch_script.py
+project/dataTest.txt
 project/data.txt
 project/dataParallel.txt
 project/CrimesChicago.json
