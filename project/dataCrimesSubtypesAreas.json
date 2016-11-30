@@ -1,0 +1,72 @@
+{
+  "battery": {
+    "simple": {
+      "school, public, grounds": 5,
+      "street": 900,
+      "sidewalk": 5
+    },
+    "domestic battery simple": {
+      "residence": 5,
+      "apartment": 10,
+      "street": 10
+    }
+  },
+  "prostitution": {
+    "solicit on public way": {
+      "street": 10
+    }
+  },
+  "narcotics": {
+    "poss: cannabis 30gms or less": {
+      "sidewalk": 10,
+      "street": 5,
+      "school, public, building": 15
+    },
+    "poss: heroin(white)": {
+      "parking lot/garage(non.resid.)": 5,
+      "street": 5,
+      "cha hallway/stairwell/elevator": 5
+    },
+    "attempt possession cannabis": {
+      "street": 15
+    },
+    "poss: crack": {
+      "street": 5,
+      "grocery food store": 5
+    },
+    "solicit narcotics on publicway": {
+      "street": 10
+    },
+    "pos: hypodermic needle": {
+      "cha apartment": 5
+    },
+    "manu/del:cannabis over 10 gms": {
+      "parking lot/garage(non.resid.)": 5
+    },
+    "found suspect narcotics": {
+      "residence": 5
+    }
+  },
+  "assault": {
+    "simple": {
+      "street": 5,
+      "school, public, building": 5
+    },
+    "aggravated: other dang weapon": {
+      "street": 5
+    }
+  },
+  "theft": {
+    "from building": {
+      "other": 5
+    },
+    "$500 and under": {
+      "street": 10
+    }
+  },
+  "motor vehicle theft": {
+    "automobile": {
+      "street": 5
+    }
+  }
+}
